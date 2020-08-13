@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+    <div class="col-lg-6">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Abbiamo qualche problema!</h1>
+                <p>Non è stato possibile completare la procedura di logout dall'area riservata. Prova a chiudere il browser e ritentare il logout.</p>
+                <hr />
+                <code><?=$code ?></code>
+            </div>
+            <hr />
+        </div>
+    </div>
+</div>

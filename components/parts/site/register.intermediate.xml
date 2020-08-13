@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+    <div class="col-lg-7">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Registrazione avvenuta con successo!</h1>
+                <p>Riceverai a breve un'e-mail per verificare il tuo account, nel caso in cui non la trovassi controlla nello spam o nella posta indesiderata.</p>
+                <hr />
+                <p><strong>Non &egrave; arrivata?</strong> Effettua normalmente il login, e quando compare la schermata di errore, procedi richiedendo una nuova e-mail di verifica.</p>
+                <p>Fino a che non avrai verificato l'indirizzo e-mail, non potrai accedere al tuo account.</p>
+                <hr />
+                <p>→ Puoi tornare all'area di login <a href='login.php'>cliccando qui</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+    <div class="col-lg-7">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">Partecipa al sondaggio</h1>
+                <p>Compilando questo modulo ti proponi come potenziale partecipante al test da svolgere per la tesi di laurea triennale di <a href="mailto:gabriele.vaudano@studenti.polito.it">Gabriele Vaudano</a>.</p>
+            </div>
+            <form class="user" action="register.php" method="post">
+                <div class="form-group row">
+                    <div class="col-sm-12 mb-12 mb-sm-0">
+                        <input type="email" class="form-control form-control-user" name="email" placeholder="La tua email" required />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 mb-12 mb-sm-0">
+                        <select name="gender" class="form-control-user" style="border-color: #cecece; padding: 1.2em; width: 100%; outline: none;" title="Scegli una opzione" required>
+                            <option value="" disabled selected>Sesso</option>
+                            <option value="0">Maschio</option>
+                            <option value="1">Femmina</option>
+                            <option value="2">Altro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 mb-12 mb-sm-0">
+                        <select name="age" class="form-control-user" style="border-color: #cecece; padding: 1.2em; width: 100%; outline: none;" title="Scegli una opzione" required>
+                            <option value="" disabled selected>Fascia d'età</option>
+                            <option value="18">18-24</option>
+                            <option value="25">25-34</option>
+                            <option value="35">35-44</option>
+                            <option value="45">45-54</option>
+                            <option value="55">55-64</option>
+                            <option value="65">65+</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 mb-12 mb-sm-0">
+                        <select name="knowledge" class="form-control-user" style="border-color: #cecece; padding: 1.2em; width: 100%; outline: none;" title="Scegli una opzione" required>
+                            <option value="" disabled selected>Livello di competenze informatiche</option>
+                            <option value="1">Base</option>
+                            <option value="2">Elementari</option>
+                            <option value="3">Intermedie</option>
+                            <option value="4">Avanzate</option>
+                            <option value="5">Esperte</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-12 mb-12 mb-sm-0">
+                        <input type="password" class="form-control form-control-user" name="password" placeholder="Password" pattern="^(?:(?=.*?[A-Z])(?:(?=.*?[0-9])(?=.*?[-!@#$%^&*()_[\]{},.<>+=])|(?=.*?[a-z])(?:(?=.*?[0-9])|(?=.*?[-!@#$%^&*()_[\]{},.<>+=])))|(?=.*?[a-z])(?=.*?[0-9])(?=.*?[-!@#$%^&*()_[\]{},.<>+=]))[A-Za-z0-9!@#$%^&*()_[\]{},.<>+=-]{7,50}$" title="La password deve contenere almeno un carattere numerico, una minuscola, una maiuscola. Inoltre deve essere lungo almeno 8 caratteri." required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input id="privacy" type="checkbox" name="privacy" required />
+                        <label for="privacy">Accetto <a href="https://www.iubenda.com/privacy-policy/94555618" class="iubenda-nostyle no-brand iubenda-embed" title="Privacy Policy ">l'informativa Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>  per il test</label>
+                    </div>
+                </div>
+                <div class="form-group row text-center">
+                    <div class="col-sm-12 mb-12">
+                        <input type="submit" value="Registrati" class="btn btn-primary btn-user btn-block mb-2" />
+                    </div>
+
+                </div>
+            </form>
+            <div class="text-center">
+                <hr />
+                <a class="btn btn-warning text-gray-900 btn-user m-3 mt-2" href="login.php">Già registrato? Accedi cliccando qui.</a>
+            </div>
+            <div class="text-center">
+                <a class="small" href="forgot-password.php">Password Dimenticata?</a>
+            </div>
+        </div>
+    </div>
+</div>

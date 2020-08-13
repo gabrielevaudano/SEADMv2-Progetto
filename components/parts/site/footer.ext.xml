@@ -1,0 +1,28 @@
+
+</div>
+        </div>
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <a href="https://www.iubenda.com/privacy-policy/94555618" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+        <a href="https://www.iubenda.com/privacy-policy/94555618/cookie-policy" class="iubenda-white no-brand iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    </div>
+</div>
+    </div>
+</div>
+
+        <!-- Bootstrap core JavaScript-->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Core plugin JavaScript-->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+<script>
+var _iub = _iub || [];
+_iub.csConfiguration = {"reloadOnConsent":true,"enableRemoteConsent":true,"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"it","siteId":1979578,"cookiePolicyId":94555618, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#4d72e0","acceptButtonCaptionColor":"white","customizeButtonColor":"#585757","customizeButtonCaptionColor":"#f2f2f2","rejectButtonColor":"#4d72e0","rejectButtonCaptionColor":"white","position":"float-top-center","textColor":"#0e0d0d","backgroundColor":"#f4f4f4" }};
+</script>
+<script src="//cdn.iubenda.com/cs/iubenda_cs.js" async></script>
+        </body>
+
+        </html>

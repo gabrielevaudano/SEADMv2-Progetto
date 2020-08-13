@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="col-lg-6 d-none d-lg-block bg-password-image"></div>
+    <div class="col-lg-6">
+        <div class="p-5">
+            <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-2">Hai dimenticato la password?</h1>
+                <p class="mb-4">Abbiamo capito, succede. Inserisci il tuo indirizzo e-mail qui sotto e ti invieremo un link per reimpostare la tua password!</p>
+            </div>
+            <form class="user" action="forgot-password.php" method="post">
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." required>
+                    <input type="hidden" name="proceed" value="oauth-KD458819EK">
+
+                </div>
+                <input class="btn btn-primary btn-user btn-block" type="submit" value="Completa la richiesta">
+            </form>
+            <hr>
+            <div class="text-center">
+                <a class="small" href="register.php">Crea un Account!</a>
+            </div>
+            <div class="text-center">
+                <a class="small" href="login.php">Hai già un account? Accesso!</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="row">
+
+    <div class="col-lg-12 mb-12">
+        <div class="card shadow mb-12 ">
+            <div class="card-header bg-gradient-primary py-3">
+                <h6 class="m-0 font-weight-bold text-light">Sondaggio finale attivato</h6>
+            </div>
+            <div class="card-body">
+                <p>Il test è stato completato. Consisteva in un attacco di phishing che cercava di ottenere informazioni sensibili (localizzazione) chiedendo i permessi
+                    per accedere ad una cartella Google Drive. Ora puoi procedere con la compilazione del sondaggio finale.</p>
+                <em> Nota: verrai re-indirizzato ad un sito esterno attraverso il quale vengono erogati i sondaggi.<hr /><strong>Ricorda di inserire l'ID e non l'e-mail.</strong></em>
+                <p class="text-danger">Il tuo ID è <strong><?=$_SESSION['uid']?></strong></p>
+                <hr />
+                <p><a class="btn btn-primary" href="https://gabrielevaudano2.typeform.com/to/K2a5DLyv">Avvia il sondaggio finale</a></p>
+            </div>
+        </div>
+    </div>
+</div>

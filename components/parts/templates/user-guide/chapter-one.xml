@@ -1,0 +1,35 @@
+<h2 class="h4">Definizione di ingegneria sociale</h2>
+<p>
+Negli anni, più di un esperto ha cercato di qualificare in maniera completa ed esaustiva il termine "ingegneria sociale"; non riuscendo mai completamente nell'intento, si è giunti alla conclusione che non esista una definizione unica, universalmente accettata, del fenomeno bensì una costellazione di descrizioni che propongo differenti e specifiche interpretazioni riguardo alle dinamiche dell'attacco.
+</p>
+<p>
+Essa viene spesso descritta come una tecnica di manipolazione e persuasione al fine di ottenere informazioni o far compiere una determinata azione alla vittima dell'attacco, lesiva per sè o per la società per cui lavora. Inoltre, spesso è specificato come tale tecnica venga adoperata per ottenere l'accesso a sistemi e reti di computer.
+        </p>
+<p>
+L'unico elemento presente in tutte le definizioni è l'uomo; esso viene sempre persuaso per ottenere la risorse richieste dall'ingegnere sociale per completare l'offensiva.
+        </p>
+<p>
+Come affermato da Mouton , in un attacco di ingegneria sociale si sfrutta:
+<em class="text-gray-700">"L'utilizzo dell'interazione sociale come mezzo per persuadere, un individuo o un'organizzazione, a soddisfare una specifica richiesta di un utente malintenzionato; in tale attacco l'interazione sociale, la tecnica di persuasione e/o la richiesta si servono di un mezzo informatico per essere attuate}. Pur non riuscendo a presentare in maniera esaustiva tutte le condizioni nell'ingegneria sociale, essa è la definizione più generale e completa offerta ad ora.
+"</em></p>
+
+<h2 class="h5">La componente umana</h2>
+<p>Tutte le tecniche di attacco di ingegneria sociale si realizzano grazie ad un elemento sempre necessario: la componente umana. La vittima, eseguendo determinate operazioni o fornendo precise informazioni, diventa l'elemento fondamentale dell'attacco. Riconoscendo che tutti i sistemi di informazione si basino sulla presenza dell'uomo, diventa chiaro che gli utenti siano una vulnerabilità universale, indipendentemente dalla piattaforma, dall'architettura di rete, dagli applicativi o dall'età delle apparecchiature adoperate.<7
+<h3 class="h6 text-primary">Esempio</h3>
+<p>Ad esempio, utente riceve un messaggio di posta con oggetto: "Hai vinto un premio!". Inconsapevole che gli sia stato recapitato da un soggetto malevolo, lo apre e clicca sul collegamento per ottenere la "vincita". La pagina appena aperta richiede all'utente alcuni dati sensibili utili per completare la transazione; nel momento in cui li fornisce, l'attacco di ingegneria sociale si può ritenere completato: l'utente malevolo potrà utilizzarli per proseguire alla fase successiva dell'attacco (ad esempio sfruttandoli per collegarsi al profilo aziendale dell'utente e infettare la rete) o semplicemente sfruttarli a proprio vantaggio.
+
+    L'utente malevolo approfitta dell'inconsapevolezza della vittima per farla diventare essa stessa attrice protagonista dell'attacco.</p>
+<hr />
+<h2 class="h4">Principali vettori d'attacco</h2>
+<p>Gli attacchi di ingegneria sociale si presentano in differenti forme e possono essere eseguiti ovunque sia coinvolta l'interazione umana.
+    In base alla tipologia e agli obiettivi dell'attacco, l'ingegnere sociale seleziona il vettore più indicato per la propria situazione.
+    I principali strumenti e metodi adoperati nel campo dell'ingegneria sociale sono: </p>
+<ul>
+    <li>Phishing e spear phishing</li>
+    <li>Baiting</li>
+    <li>Quid pro quo</li>
+    <li>Tailgating</li>
+    <li>Reverse engineering</li>
+    <li>Dumpster Diving (come vettore di attacco)</li>
+</ul>
+<p>&Egrave; consigliata la lettura di: <a href="https://www.cybersecurity360.it/nuove-minacce/social-engineering-e-human-hacking-le-tecniche-di-attacco-computer-based/">https://www.cybersecurity360.it/nuove-minacce/social-engineering-e-human-hacking-le-tecniche-di-attacco-computer-based/</a> per approfondire le informazioni sulle singole tecniche d'attacco.</p>

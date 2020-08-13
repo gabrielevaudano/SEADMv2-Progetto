@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+
+    <head>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="Gabriele Vaudano" />
+
+        <title>SEPT | Social Engineering Prevention Toolkit</title>
+
+        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" media="screen" />
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,700,900" rel="stylesheet" />
+
+        <link href="css/style.min.css" rel="stylesheet" media="screen" />
+        <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" media="screen" />
+
+    </head>
+    <body id="page-top">
+        <div id="wrapper">
+            <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+                    <div class="sidebar-brand-icon">
+                        <i class="fa fa-user-shield"></i>
+                    </div>
+                    <div class="sidebar-brand-text mx-3">SEPT</div>
+                </a>
+                <hr class="sidebar-divider my-0" />
+
+                <div class="nav-item active">
+                    <a class="nav-link" href="index.php">
+                        <i class="fa fa-fw fa-tachometer-alt"></i>
+                        <span>Pagina Principale</span></a>
+                </div>
+
+
+                <?php
+                        if (($_SESSION['user']->getGroup()!=9)) { echo ""; } else {
+                        ?>
+                <hr class="sidebar-divider" />
+
+                <div class="sidebar-heading">
+                    Pannello di amministrazione
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link collapsed" href="admin.php">
+                        <i class="fa fa-fw fa-cog"></i>
+                        <span>Amministrazione</span>
+                    </a>
+                </div>
+                <hr class="sidebar-divider" />
+
+                <?php } ?>
+
+                <div class="sidebar-heading">
+                    Strumenti
+                </div>
+                <?php
+                        if (($_SESSION['user']->getGroup()<2)) { echo ""; } else {
+                        ?>
+
+                <div class="nav-item">
+                    <a class="nav-link collapsed" href="seadmv2.php">
+                        <i class="fa fa-fw fa-cog"></i>
+                        <span>SEADMv2</span>
+                    </a>
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link collapsed" href="helpdesk.php">
+                        <i class="fa fa-fw fa-user-shield"></i>
+                        <span>Cento Assistenza</span>
+                    </a>
+                </div>
+
+                <?php
+                        }
+                        ?>
+                <hr class="sidebar-divider" />
+
+
+                <div class="sidebar-heading">
+                    Educazione
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link collapsed" href="user-guide.php" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fa fa-fw fa-book"></i>
+                        <span>Materiale Informativo</span>
+                    </a>
+                    <div id="collapseUtilities" class="collapse" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">Capitoli:</h6>
+                            <a class="collapse-item" href="user-guide.php#introduction">Introduzione</a>
+                            <a class="collapse-item" href="user-guide.php#attack-examples">Esempi d'attacco</a>
+                            <a class="collapse-item" href="user-guide.php#defense-tecniques">Tecniche di difesa</a>
+                            <a class="collapse-item" href="user-guide.php#resources">Strumenti e risorse</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="sidebar-divider" />
+
+                <div class="sidebar-heading">
+                    Informativa Privacy
+                </div>
+
+                <div class="nav-item">
+                    <a class="iubenda-nostyle no-brand iubenda-embed nav-link" href="https://www.iubenda.com/privacy-policy/94555618">
+                        <i class="fa fa-fw fa-lock"></i>
+                        <span>Privacy Policy</span>
+                    </a><script>(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                </div>
+
+                <div class="nav-item">
+                    <a class="nav-link iubenda-nostyle no-brand iubenda-embed" href="https://www.iubenda.com/privacy-policy/94555618/cookie-policy">
+                        <i class="fa fa-fw fa-cookie"></i>
+                        <span>Cookie Policy</span>
+                    </a><script>(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                </div>
+                <hr class="sidebar-divider" />
+
+                <div class="text-center d-none d-md-inline">
+                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+                </div>
+            </div>
+
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+
+                        <div class="navbar-nav ml-auto">
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <div class="nav-item dropdown no-arrow bg-gradient-danger">
+                                <span class="nav-link text-light small">
+                                    <strong><span class="text-warning">ID:</span> <em class="text-light"><?=$_SESSION['uid']?></em></strong>
+                                </span>
+                            </div>
+                            <div class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">  <?=$_SESSION['user']->getEmail()?> </span>
+                                    <!-- code for personalized profile image -->
+                                    <?php
+                                            if ($_SESSION['user']->getGender()==1)
+                                            echo '<img class="img-profile rounded-circle" src="img/female-profile.svg"  alt="Profilo"/>';
+                                            else if ($_SESSION['user']->getGender()==0)
+                                            echo '<img class="img-profile rounded-circle" src="img/male-profile.svg"  alt="Profilo"/>';
+                                            else
+                                            echo '<img class="img-profile rounded-circle" src="img/male-profile.svg"  alt="Profilo"/>';
+                                            ?>
+
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="profile.php">
+                                        <i class="fa fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Profilo
+                                    </a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Log Attivit&agrave;
+                                    </a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fa fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Logout
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>

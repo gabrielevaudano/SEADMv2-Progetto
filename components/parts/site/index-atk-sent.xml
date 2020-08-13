@@ -1,0 +1,15 @@
+<div class="row">
+
+    <div class="col-lg-12 mb-12">
+        <div class="card shadow mb-12">
+            <div class="card-header bg-gradient-danger py-3">
+                <h6 class="m-0 font-weight-bold text-light">Test in corso</h6>
+            </div>
+            <div class="card-body">
+                <p>Il test è in corso di realizzazione. Nessuna azione è richiesta in questo momento.</p>
+                <hr />
+                <p class="font-weight-bolder">Ti preghiamo di verificare frequentemente l'e-mail (anche la posta indesiderata) in questa fase.</p>
+            </div>
+        </div>
+    </div>
+</div>

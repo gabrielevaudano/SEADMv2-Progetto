@@ -1,0 +1,31 @@
+            <div class="table-responsive">
+
+                <table class="table table-bordered" id="usersTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Gruppo</th>
+                            <th>Sesso</th>
+                            <th>Età</th>
+                            <th>Competenze</th>
+                            <th>Progresso test</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Email</th>
+                            <th>Gruppo</th>
+                            <th>Sesso</th>
+                            <th>Età</th>
+                            <th>Competenze</th>
+                            <th>Progresso test</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                       <?php echo $session->getUsersData() ?>
+                    </tbody>
+                </table>
+            </div>
+
+
+

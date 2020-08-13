@@ -1,0 +1,13 @@
+<div class="row">
+
+    <div class="col-lg-12 mb-12">
+        <div class="card shadow mb-12">
+            <div class="card-header bg-gradient-danger py-3">
+                <h6 class="m-0 font-weight-bold text-light">Test Completato!</h6>
+            </div>
+            <div class="card-body">
+                <p>Grazie di cuore per aver partecipato al test. Per avere maggiori informazioni, conoscere i risultati del test o leggere la tesi di laurea completa, puoi contattarmi via e-mail.</p>
+            </div>
+        </div>
+    </div>
+</div>

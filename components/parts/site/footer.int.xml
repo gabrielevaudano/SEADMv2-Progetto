@@ -1,0 +1,97 @@
+        </div>
+    </div>
+</div>
+                <!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Gabriele Vaudano 2020</span>
+        </div>
+    </div>
+</footer>
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Status Modal -->
+        <div class="modal fade" id="statusModal" tabindex="-2" role="dialog" aria-labelledby="statusModalMy" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalLogout">A che punto siamo con il test?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <?php
+                        include ('components/applications/lib/common-functions.php');
+                        $atkR = $session->getAtkData($_SESSION['user']->getEmail());
+                        $level = intval(getStatusAttackComplete($atkR['atkSent'], $atkR['AtkRe'])['value'])*25;
+                        $level = $level . "%";
+                        ?>
+                <div class="modal-body">
+                    <div class="row p-3">
+                        <hr />
+                        <div class="col">
+                            <p>Di seguito troverai ulteriori informazioni sullo stato di completamento dell'esperimento:</p>
+                            <hr />
+                            <p class="font-weight-bolder text-danger text-center"><?=getStatusAttackComplete($atkR['atkSent'], $atkR['AtkRe'])['label']; ?></p>
+                            <hr />
+                        </div>
+                    </div>
+                    <div class="row p-3">
+                        <div class="col mt-0 mb-2">
+
+                            <div class="progress progress-sm mr-2">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: <?=$level; ?>;" aria-valuemin="0" aria-valuemax="5"></div>
+                            </div>
+                            <span class="small text-warning">Sei al <?=$level; ?> del totale</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Rimani</button>
+                    <a class="btn btn-primary" href="logout.php">Logout</a>
+                </div>
+            </div>
+        </div>
+        </div>
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="modalLogout" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalLogout">Un arrivederci?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">Seleziona "Logout" se vuoi chiudere la sessione corrente.</div>
+        <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Rimani</button>
+            <a class="btn btn-primary" href="logout.php">Logout</a>
+        </div>
+    </div>
+</div>
+</div>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="js/functions.min.js"></script>
+
+    <script>
+
+    $(document).ready( function () {
+    $('#usersTable').DataTable();
+    } );
+
+    var _iub = _iub || [];
+    _iub.csConfiguration = {"reloadOnConsent":true,"enableRemoteConsent":true,"consentOnContinuedBrowsing":false,"whitelabel":false,"lang":"it","siteId":1979578,"cookiePolicyId":94555618, "banner":{ "acceptButtonDisplay":true,"customizeButtonDisplay":true,"acceptButtonColor":"#4d72e0","acceptButtonCaptionColor":"white","customizeButtonColor":"#585757","customizeButtonCaptionColor":"#f2f2f2","rejectButtonColor":"#4d72e0","rejectButtonCaptionColor":"white","position":"float-top-center","textColor":"#0e0d0d","backgroundColor":"#f4f4f4" }};
+    </script>
+    <script src="//cdn.iubenda.com/cs/iubenda_cs.js" async></script>
+    </body>
+</html>

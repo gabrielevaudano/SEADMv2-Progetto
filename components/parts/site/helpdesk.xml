@@ -1,0 +1,62 @@
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Centro Assistenza</h1>
+
+    <noscript>
+        <div class="row">
+            <div class="col-lg-12 mb-12">
+                <div class="card shadow mb-12">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Hai disabilitato Javascript?</h6>
+                    </div>
+                    <div class="card-body">
+                        <p>Sembra che il tuo browser non abbia Javascript abilitato. Alcune funzionalità del sito potrebbero essere limitate o bloccate. Per fruire di una esperienza completa, riabilita Javascript.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </noscript>
+
+    <div class="row">
+        <div class="col-lg-12 mb-12">
+            <div class="card shadow mb-12">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Introduzione</h6>
+                </div>
+                <div class="card-body">
+                    <p>Attraverso questo strumento potrai verificare e-mail o richieste sospette ed evitare di cadere vittima di un attacco di ingegneria sociale conoscendone il funzionamento e sfruttando le potenzialità di strumenti in grado di svolgere funzione di supporto decisionale.</p>
+                    <p>Nel riquadro sottostante è presente il modello. Semplicemente rispondi alle domande e riceverai un consiglio su come procedere nel caso di situazioni potenzialmente rischiose. Nel caso in cui alcune risposte non siano chiare o non sai cosa rispondere, seleziona il campo "Non lo so".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <hr />
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 mb-12">
+            <div class="card shadow mb-12">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Strumento</h6>
+                </div>
+                <div class="card-body">
+                    <div class="text-center">
+
+                    </div>
+                    <div class="typeform-widget" data-url="https://form.typeform.com/to/teMRkej8" data-transparency="50" data-hide-headers=true data-hide-footer=true style="width: 100%; height: 500px;"></div> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm", b="https://embed.typeform.com/"; if(!gi.call(d,id)) { js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script> <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;"> powered by <a href="https://admin.typeform.com/signup?utm_campaign=teMRkej8&utm_source=typeform.com-01D8JWYV6QWYFS33TWDHNV76J8-free&utm_medium=typeform&utm_content=typeform-embedded-poweredbytypeform&utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

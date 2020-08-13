@@ -1,0 +1,22 @@
+<div class="row">
+    <hr />
+</div>
+<div class="row">
+<div class="col-lg-12 mb-12">
+    <div class="card shadow mb-12">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Come Funziona questo Strumento</h6>
+        </div>
+        <div class="card-body">
+            <div class="text-center">
+                <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;" src="img/secu-home.svg" alt="Immagine home">
+            </div>
+            <p>Attraverso questo strumento potrai verificare e-mail o richieste sospette ed evitare di cadere vittima di un attacco di ingegneria sociale conoscendone il funzionamento e sfruttando le potenzialità di strumenti in grado di svolgere funzione di supporto decisionale.</p>
+            <?=$toolData?>
+            <p><a href="user-guide.php">Leggi il manuale utente &rarr;</a></p>
+
+        </div>
+    </div>
+</div>
+</div>
+        </div>

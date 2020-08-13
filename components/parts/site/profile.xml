@@ -1,0 +1,142 @@
+
+<div class="container-fluid">
+    <h1 class="h3 mb-4 text-gray-800">Il tuo profilo</h1>
+
+    <noscript>
+        <!-- TODO -->
+    </noscript>
+
+    <div class="row">
+        <div class="col-lg-12 mb-12">
+            <div class="card shadow mb-12">
+                <div class="card-header py-3">
+                    <h6 class="m-0 font-weight-bold text-primary">Informazioni sul tuo profilo</h6>
+                </div>
+                <div class="card-body">
+                    <p>Di seguito troverai informazioni riguardo al tuo profilo. Esse verranno utilizzate a fini statistici per effettuare il test e analizzarne i risultati.</p>
+                    <p><strong>Nota bene:</strong> nel caso in cui volessi disabilitare il profilo, cambiare la password o uno qualsiasi dei dati forniti o chiedere ulteriori informazioni: contatta direttamente Gabriele Vaudano. Al termine del test, i dati verranno rimossi permanentemente in maniera sicura e nessuna traccia sarà lasciata su questo portale.</p>
+                    <hr />
+                    <a href="helpdesk.php">→ Richiedi assistenza </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <hr />
+    </div>
+    <div class="row">
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Indirizzo Email</div>
+                            <div class="h6 mb-0 font-weight-bold text-gray-800"><?=$_SESSION['user']->getEmail();?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-mail-bulk fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Sesso</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=getGender($_SESSION['user']->getGender())?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-male fa-2x text-gray-300"></i>
+                            <i class="fas fa-female fa-2x text-gray-300"></i>
+                            <i class="fas fa-genderless fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Livello di competenze informatiche</div>
+                            <div class="row no-gutters align-items-center">
+                                <div class="col-auto">
+                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?=$_SESSION['user']->getTechLevel();?>/5</div>
+                                </div>
+                                <div class="col">
+                                    <div class="progress progress-sm mr-2">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: <?=intval($_SESSION['user']->getTechLevel())*20?>%" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-book fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Età</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?=getAgeRange($_SESSION['user']->getRangeAge());?></div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-people-carry fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Consenso Privacy</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Hai dato il consenso.</div>
+                            <div class="mb-0 text-gray-800">Hai consentito all'Informativa sulla Privacy e ai termini e condizioni applicati per questo test universitario. Per recedere leggi le informazioni riportate sul documento completo o contatta direttamente <a href="mailto:gabriele.vaudano@studenti.polito.it">Gabriele Vaudano cliccando qui</a>.</div>
+                            <hr />
+                            <p><a href="https://www.iubenda.com/privacy-policy/94555618" class="iubenda-nostyle no-brand iubenda-embed" title="Privacy Policy ">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                                &nbsp;|&nbsp;<a href="https://www.iubenda.com/privacy-policy/94555618/cookie-policy" class="iubenda-nostyle no-brand iubenda-embed" title="Cookie Policy ">Cookie Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-md-12 mb-4">
+            <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Gruppo del test</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">
+                                <p>Gruppo <?=$_SESSION['user']->getGroup()?></p>
+                            </div>
+                            <p>Il gruppo di appartenenza è  <?=$_SESSION['user']->getGroup()?>. In base ad esso cambiano le informazioni mostrate in questo portale e il test a cui verrai sottoposto. Non ti verrà mai richiesta questa o altre informazioni, esse sono utili solo per le nalisi.</p>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fa fa-people-carry fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
