@@ -3,7 +3,7 @@
 require_once 'DbConnect.php';
 include_once('components/applications/database/Base32.php');
 
-use phpseclib\Crypt\Blowfish;
+use phpseclib\Crypt\AES;
 
 
 
@@ -11,28 +11,20 @@ class SiteDAO
 {
 
     private $db;
+    private $key = "p7H7FMDPkr3FfARMJKK42UrjxpCdVNk8";
 
     function __construct() {
         // connecting to database
     }
 
     private function encryptData($data) {
-        $key = "I~$\.JJ;xv.~r]h(SjzKamTWPi[;ZI9<HvebONy9=M|%8$5q)J;C#U}.>Wm|8|l";
-
-        $cipher = new Blowfish();
-        $cipher->setKey($key);
-        $ch = $cipher->encrypt($data);
-        return Base32::encode($ch);
+        return Base32::encode($data);
     }
 
     public function decrypt($data)
     {
-        $key = "I~$\.JJ;xv.~r]h(SjzKamTWPi[;ZI9<HvebONy9=M|%8$5q)J;C#U}.>Wm|8|l";
-        $cipher = new Blowfish();
-        $cipher->setKey($key);
-
         $ch = Base32::decode($data);
-        return $cipher->decrypt($ch);
+        return $ch;
     }
 
     private function getToken($length){
