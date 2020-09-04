@@ -191,7 +191,8 @@ Il database contiene le informazini sugli utenti utilizzando due tabelle:
 -   una tabella per mantenere i dati di avanzamento del test per singolo utente e altri dati demografici acquisiti con il sondaggio iniziale (in fase di registrazione): esso corrisponderà con la tabella ‘user-informations‘.
 
 Aprire PhpMyAdmin e compilare da linea di comando il seguente codice sorgente: esso genererà il database e le relative tabelle.
-    
+
+```sql
     -- Database: `app`
     CREATE DATABASE app;
 
@@ -231,6 +232,7 @@ Aprire PhpMyAdmin e compilare da linea di comando il seguente codice sorgente: e
     -- Limiti per la tabella `user-informations`
     ALTER TABLE `user-informations`
     ADD CONSTRAINT `ext-ue` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+```
 
 #### Funzionamento operativo dei campi presenti nelle tabelle
 ##### Tabella ‘users‘
@@ -289,7 +291,7 @@ Per procedere con l'installazione dell'infrastruttura
 
     -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato sottostante, modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo (il nome utente e le password degli utenti del DBMS sono stati creati in fase di preparazione dell'ambiente);
 
-
+```php
                     <?php
                     $host = 'HOST_DBMS'; // normalmente è 'localhost'
                     $database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
@@ -300,7 +302,7 @@ Per procedere con l'installazione dell'infrastruttura
                     $usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
                     $passwordRO = 'PASSWORD_READWRITE'; // Password --
                     ?>
-
+```
     -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
     
 ```php
