@@ -381,7 +381,9 @@ Successivamente, modificare le seguenti righe di codice:
 <p><a class="btn btn-primary" target="_blank" href="QUI_IL_LINK_AL_FORM{2}">Avvia il sondaggio finale</a></p>
 ```
 
-- nel file `helpdesk.php`: cambiare il codice seguendo la procedura Typeform (o simile) per inserire il modulo come popup.
+- nel file `helpdesk.php`: cambiare il codice seguendo la procedura Typeform (o simile) per inserire il modulo come popup;
+
+- cambiare in tutte le parti interessate i link alla privacy e cookie policy con i propri documenti; se si utilizza Iubenda, semplicemente cambiare il collegamento al documento.
 
 ***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
 
