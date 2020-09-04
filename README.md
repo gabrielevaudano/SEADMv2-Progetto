@@ -1,5 +1,54 @@
-# Menu principale
-In questo documento trovi:
+# Tabella dei contenuti
+- [Introduzione](#introduzione)
+- [Funzionamento](#funzionamento)
+- [Installazione ed Utilizzo](#installazione-ed-utilizzo)
+  * [Progettazione e sviluppo del portale](#progettazione-e-sviluppo-del-portale)
+    + [Preparazione dell’ambiente di sviluppo](#preparazione-dell-ambiente-di-sviluppo)
+      - [Creazione del VPS](#creazione-del-vps)
+      - [Installazione dell’infrastruttura web](#installazione-dell-infrastruttura-web)
+        * [Inizializzazione del DBMS e creazione degli utenti](#inizializzazione-del-dbms-e-creazione-degli-utenti)
+      - [Impostazione del firewall](#impostazione-del-firewall)
+      - [Creazione e implementazione del FQDN sept.tech](#creazione-e-implementazione-del-fqdn-septtech)
+      - [Virtual host e certificato SSL](#virtual-host-e-certificato-ssl)
+      - [Servizio di posta elettronica](#servizio-di-posta-elettronica)
+      - [Configurazione del file httpd.conf e architettura degli .htaccess](#configurazione-del-file-httpdconf-e-architettura-degli-htaccess)
+      - [Ultimazione dell’ambiente di sviluppo](#ultimazione-dell-ambiente-di-sviluppo)
+  * [Progettazione del portale](#progettazione-del-portale)
+    + [Mappa del sito](#mappa-del-sito)
+    + [Creazione del database e delle relative tabelle](#creazione-del-database-e-delle-relative-tabelle)
+      - [Funzionamento operativo dei campi presenti nelle tabelle](#funzionamento-operativo-dei-campi-presenti-nelle-tabelle)
+        * [Tabella ‘users‘](#tabella--users-)
+        * [Tabella ‘user-informations’](#tabella--user-informations-)
+  * [Installazione della piattaforma](#installazione-della-piattaforma)
+      - [Inizializzazione ed impostazione dei servizi esterni](#inizializzazione-ed-impostazione-dei-servizi-esterni)
+  * [Preparazione dell’ambiente software per il vettore d’attacco](#preparazione-dell-ambiente-software-per-il-vettore-d-attacco)
+      - [Note sul metodo di installazione per Kali Linux](#note-sul-metodo-di-installazione-per-kali-linux)
+      - [Note sulla procedura di installazione per Kali Linux](#note-sulla-procedura-di-installazione-per-kali-linux)
+    + [Installazione di HiddenEye](#installazione-di-hiddeneye)
+    + [Esecuzione di HiddenEye e utilizzo](#esecuzione-di-hiddeneye-e-utilizzo)
+- [Utilizzo della piattaforma](#utilizzo-della-piattaforma)
+  * [Procedura di utilizzo](#procedura-di-utilizzo)
+      - [Registrazione iniziale e conferma dell’indirizzo e-mail](#registrazione-iniziale-e-conferma-dell-indirizzo-e-mail)
+        * [Conferma dell’indirizzo e-mail](#conferma-dell-indirizzo-e-mail)
+      - [Attivazione dell’account e scelta del gruppo](#attivazione-dell-account-e-scelta-del-gruppo)
+      - [Avvio dell’attacco di ingegneria sociale](#avvio-dell-attacco-di-ingegneria-sociale)
+      - [Lettura delle informazioni sul test](#lettura-delle-informazioni-sul-test)
+        * [Avvio dell’attacco da parte dell’amministratore](#avvio-dell-attacco-da-parte-dell-amministratore)
+        * [Completamento dell’attacco](#completamento-dell-attacco)
+      - [Somministrazione del sondaggio finale](#somministrazione-del-sondaggio-finale)
+      - [Completamento del test](#completamento-del-test)
+  * [Le pagine del portale](#le-pagine-del-portale)
+      - [Area pubblica](#area-pubblica)
+      - [Area privata](#area-privata)
+        * [Pagina principale](#pagina-principale)
+        * [Pagina del profilo](#pagina-del-profilo)
+        * [SEADMv2](#seadmv2)
+        * [Centro assistenza](#centro-assistenza)
+        * [Privacy e Cookie Policy](#privacy-e-cookie-policy)
+        * [Manuale Utente](#manuale-utente)
+        * [Pagina di logout](#pagina-di-logout)
+        * [Pagina d’amministrazione](#pagina-d-amministrazione)
+- [Personalizzazione](#personalizzazione)
 
 # Introduzione
 SEPT (Social Engineering Prevention Tool) nasce con l'intento di proporre una infrastruttura all-in-one in grado di effettuare test interattivi sul modello di prevenzione SEADMv2 e simulazioni di attacchi di ingegneria sociale per fini di ricerca. Lo strumento fornisce un ambiente sicuro e facilmente installabile; alcune funzionalità non sono implementate nativamente e richiedono l'utilizzo di servizi: Typeform (per la creazione del modello SEADMv2, del sondaggio finale e del centro assistenza) e Iubenda (per la Privacy e Cookie Policy, e i termini e condizioni).
@@ -295,7 +344,7 @@ Per procedere con l'installazione dell'infrastruttura
 
     -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato sottostante, modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo (il nome utente e le password degli utenti del DBMS sono stati creati in fase di preparazione dell'ambiente);
 
-        ```php
+```php
         <?php
         $host = 'HOST_DBMS'; // normalmente è 'localhost'
         $database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
@@ -437,7 +486,7 @@ e si svolge in quattro passaggi principali:
 
 #### Registrazione iniziale e conferma dell’indirizzo e-mail
 
-Nella fase iniziale, l’utente apre la schermata principale del portale web: la pagina di registrazione (vedi la figura [fig:sept-register]). Egli dovrà immettere alcune informazioni personali:
+Nella fase iniziale, l’utente apre la schermata principale del portale web: la pagina di registrazione. Egli dovrà immettere alcune informazioni personali:
 
 -   dati utili per l’accesso al portale:
 
@@ -495,7 +544,7 @@ Quando il profilo di un utente viene attivato da parte dell’amministratore, es
 
 L’utente può visualizzare tutte le sue informazioni dalla pagina ’Profilo’; inoltre, entrambi i gruppi vengono informati riguardo all’anonimizzazione e pseudonimizzazione delle proprie informazioni personali.
 
-##### Avvio dell’attacco da parte dell’amministratore {#part:practical-attack-vector}
+##### Avvio dell’attacco da parte dell’amministratore
 
 Dopo essere stato assegnato ad un gruppo (abilitato) e aver letto le informazioni contenute nella pagina principale del portale, l’utente è pronto per iniziare il test. Esso consiste in un attacco di phishing e può essere attivato direttamente dall’amministratore.
 
@@ -503,13 +552,11 @@ In pratica, l’amministratore del sistema dovrà selezionare la vittima dell’
 
 L’utente finale riceverà un messaggio di posta elettronica da un mittente con una casella postale simile all’originale contenente un messaggio personalizzato e un pulsante che, una volta cliccato, reindirizza l’utente al sito web clone. La creazione e gestione del sito web clone e del dominio da inserire prima di perpetrare l’attacco devono essere sviluppati separatamente.
 
-Per com’è stata elaborata l’infrastruttura del test, l’indirizzo e-mail ufficiale da cui gli utenti ricevono messaggi di posta è `no-reply@sept.tech`, mentre la casella postale finta (utilizzata per effettuare l’attacco vero e proprio) è `no-reply.sept.tech@gmail.com`. Il nome associato alle caselle di posta è identico: `SEPT - Social Engineering Prevention Tool`. Il vettore di attacco è invece sviluppato utilizzando HiddenEye[^23]; l’URI è generato automaticamente dal suddetto tool sfruttando le infrastrutture Ngrok e Serveo.
-
-Per maggiori informazioni sulla creazione ed utilizzo del vettore d’attacco, consultare la sezione [part:userguide-attack-vector]
+Per com’è stata elaborata l’infrastruttura del test, l’indirizzo e-mail ufficiale da cui gli utenti ricevono messaggi di posta è `no-reply@sept.tech`, mentre la casella postale finta (utilizzata per effettuare l’attacco vero e proprio) è `no-reply.sept.tech@gmail.com`. Il nome associato alle caselle di posta è identico: `SEPT - Social Engineering Prevention Tool`. Il vettore di attacco è invece sviluppato utilizzando HiddenEye; l’URI è generato automaticamente dal suddetto tool sfruttando le infrastrutture Ngrok e Serveo.
 
 ##### Completamento dell’attacco
 
-L’amministratore rileva l’apertura del messaggio di posta elettronica da parte dell’utente “vittima" (vedi la Figura [fig:sept-attackcomplete-back]); da questo momento possono presentarsi due scenari principali:
+L’amministratore rileva l’apertura del messaggio di posta elettronica da parte dell’utente “vittima"; da questo momento possono presentarsi due scenari principali:
 
 -   test completato, attacco completato con successo: in questo caso l’utente ha aperto il link ed effettuato le azioni necessarie per la cattura dei dati; l’amministratore dichiara concluso l’attacco nel momento in cui riceve i dati nel proprio terminale;
 
@@ -582,3 +629,4 @@ In ogni momento l’utente può chiudere la sessione e uscire dall’applicazion
 Se l’utente che effettua l’accesso è l’amministratore del sistema, allora può visualizzare la pagina di amministrazione e attuare le varie fasi del test. Può essere aperta cliccando sull’omonima etichetta dal menu laterale.
 
 # Personalizzazione
+
