@@ -306,7 +306,7 @@ Per procedere con l'installazione dell'infrastruttura
                     $passwordRO = 'PASSWORD_READWRITE'; // Password --
                     ?>
 ```
-    -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
+   -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
     
 ```php
     <!-- -->
@@ -335,7 +335,23 @@ Rifiniti gli ultimi dettagli, la piattaforma sarà pronta per essere utilizzata.
 #### Inizializzazione ed impostazione dei servizi esterni
 Il portale si avvale del servizio Typeform e Iubenda per l'erogazione dei sondaggi e della privacy e cookie policy; essendo nativamente calzati per le esigenze del test compiuto, nel caso in cui si voglia ripetere il test in un ambiente di sviluppo e condizioni di contorno diverse, bisogna reimpostare tutta questa parte: per farlo, seguire la spiegazione seguente.
 
+Le pagine interessate e che necessitano di modifiche sono:
+- `tool.external.php`
+- `seadmv2.php`
+- `helpdesk.php`
+- `index.php > sezione sondaggio finale`
+e le relative sezioni `xml` utilizzate per fornire i contenuti.
 
+Operativamente parlando, è necessario svolgere la seguente procedura:
+1. Preparare un questionario basato sul modello SEADMv2 con Typeform o simile, o un applicativo da richiamare attraverso il pulsante posto nella pagina `seadmv2.php` e `tool.external.php` {1}
+2. Preparare il sondaggio finale da somministrare a tutti gli utenti, con Typeform o simile; {2}
+3. Preparare il questionario per assistenza, con Typeform o simili. {3}
+
+Successivamente, modificare le seguenti righe di codice:
+- Nel file `components/parts/site/seadmv2.xml` modificare la **riga 54** con il collegamento ipertestuale al proprio sondaggio (*QUI_IL_LINK_AL_FORM*):
+```html
+<a class="typeform-share button" href="QUI_IL_LINK_AL_FORM" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#4D72E0;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:20px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true data-submit-close-delay="2" target="_blank">Avvia lo strumento </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+```
 
 ***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
 
