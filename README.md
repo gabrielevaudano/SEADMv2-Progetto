@@ -1,7 +1,5 @@
 # Menu principale
 In questo documento trovi:
-- [Introduzione a SEPT](#-Introduzione)
-- [Funzionamento di SEPT](#-Funzionamento)
 
 # Introduzione
 SEPT (Social Engineering Prevention Tool) nasce con l'intento di proporre una infrastruttura all-in-one in grado di effettuare test interattivi sul modello di prevenzione SEADMv2 e simulazioni di attacchi di ingegneria sociale per fini di ricerca. Lo strumento fornisce un ambiente sicuro e facilmente installabile; alcune funzionalità non sono implementate nativamente e richiedono l'utilizzo di servizi: Typeform (per la creazione del modello SEADMv2, del sondaggio finale e del centro assistenza) e Iubenda (per la Privacy e Cookie Policy, e i termini e condizioni).
@@ -341,6 +339,47 @@ Il portale si avvale del servizio Typeform e Iubenda per l'erogazione dei sondag
 
 ***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
 
+## Preparazione dell’ambiente software per il vettore d’attacco
+
+L’applicativo utilizzato per compiere l’attacco è da compilare da linea di comando in ambiente Linux; per questo, è consigliato installare Kali Linux come distribuzione, in modo tale da avere un ambiente robusto e completo per poter compiere attacchi di ingegneria sociale.
+
+#### Note sul metodo di installazione per Kali Linux
+
+La distribuzione Kali deve essere installata standalone su una partizione del computer; l’installazione come sotto-sistema su Windows (utilizzando WSL, 1 e 2) o su macchina virtuale compromette alcune funzionalità e non permette l’utilizzo dei servizi ngrok e serveo, necessari per creare un tunnel pubblico attraverso cui gli utenti esterni possano fruire delle risorse originariamente disponibili su rete locale generate del computer (e in questo caso, il sito web clone).
+
+#### Note sulla procedura di installazione per Kali Linux
+
+Kali Linux può essere installato facilmente scaricando la distribuzione direttamente dal portale ufficiale o mediante il torrent fornito da Offensive Security (l’organizzazione autrice la distribuzione); durante la procedura di installazione, è preferibile lasciare invariati i parametri predefiniti e selezionare le opzioni consigliate.
+
+### Installazione di HiddenEye
+
+Per perpetrare l’attacco, verrà utilizzato HiddenEye; è stato scelto questo rispetto ad altri applicativi per la capacità di mantenere più connessioni simultanee con l’esterno e per le possibilità di sviluppare un vettore d’attacco che tenti di catturare informazioni sulla localizzazione (gli altri applicativi si limitano a tentare di catturare le informazioni di accesso per servizi online famosi, come e-mail e password di Gmail).
+
+Per installare HiddenEye su Kali Linux, seguire la procedura descritta nella sezione “Usage and Installation" della fonte @git:hiddeneye.
+
+### Esecuzione di HiddenEye e utilizzo
+
+
+Dopo aver completato la procedura di installazione, compilare da linea di comando:
+
+    cd /path/to/hiddeneye 
+    sudo python3 HiddenEye.py
+
+Avviare il tool e accettare i termini e condizioni, così come richiesto dalla procedura di attivazione di HiddenEye. Assicurarsi inoltre di essere connessi ad internet.
+
+Per replicare l’esecuzione *in quantum huiusmodi* in questa monografia: aprire l’applicativo e da linea di comando selezionare le seguenti opzioni:
+
+1.  dal menu principale di HiddenEye: “0A";
+
+2.  successivamente l’opzione “2" per impostare Google Drive come sito clone attraverso cui ottenere le informazioni sulla posizione;
+
+3.  nei seguenti campi, leggere le informazioni riportate e scegliere se digitare ‘N’ o ‘Y’ se si vuole rifiutare o abilitare la funzionalità in fase di attacco;
+
+4.  inserire una porta, strettamente maggiore di 1024;
+
+5.  fornire quindi un URI verso cui reindirizzare l’utente successivamente all’attacco.
+
+
 # Utilizzo della piattaforma
 
 In questa sezione è illustrata la procedura di normale utilizzo della piattaforma. Essa coinvolge sia l’utente finale che l’amministratore del sistema, dunque nel corso della trattazione saranno mostrati tanto i procedimenti “back-end" quanto le funzionalità “front-end".
@@ -385,17 +424,11 @@ Nella fase iniziale, l’utente apre la schermata principale del portale web: la
 
 e accettare l’informativa sulla Privacy.
 
-![Pagina di registrazione dell’applicativo.<span data-label="fig:sept-register"></span>](resource/userguide-sept-register.png){width="85.00000%"}
-
-![Pagina di conferma preliminare della registrazione all’applicativo.<span data-label="fig:sept-register-prel"></span>](resource/useguide-sept-registersucc.png){width="85.00000%"}
-
 ##### Conferma dell’indirizzo e-mail
 
 Ciascun utente dovrà confermare il proprio indirizzo e-mail prima di attivare il proprio account. In tal modo, si è sicuri che l’indirizzo e-mail effettivamente esista e possa essere utilizzato per perpetrare l’attacco di ingegneria sociale del test, ovvero lo scopo di sviluppo del portale.
 
-La conferma della casella postale avviene tramite un collegamento ipertestuale di attivazione inviato nella medesima casella, a cui l’utente deve cliccare per completare l’attivazione del proprio profilo (vedi figura [fig:sept-registerok-mail], [fig:sept-register-final]).
-
-![Messaggio di posta elettronica inviato per richiedere la conferma della casella e-mail.<span data-label="fig:sept-registerok-mail"></span>](resource/userguide-sept-registerok-mail.png){width="85.00000%"}
+La conferma della casella postale avviene tramite un collegamento ipertestuale di attivazione inviato nella medesima casella, a cui l’utente deve cliccare per completare l’attivazione del proprio profilo.
 
 #### Attivazione dell’account e scelta del gruppo
 
@@ -408,8 +441,6 @@ L’attivazione dell’account è sviluppata in due parti:
 -   attivazione lato utente: per la verifica della e-mail;
 
 -   attivazione amministratore: per confermare l’account e allocarlo ad un “gruppo di lavoro"[^21].
-
-![Schermata di completamento della procedura di verifica dell’indrizzo e-mail.<span data-label="fig:sept-register-final"></span>](resource/userguide-sept-register-final.png){width="85.00000%"}
 
 #### Avvio dell’attacco di ingegneria sociale
 
@@ -441,15 +472,9 @@ In pratica, l’amministratore del sistema dovrà selezionare la vittima dell’
 
 L’utente finale riceverà un messaggio di posta elettronica da un mittente con una casella postale simile all’originale contenente un messaggio personalizzato e un pulsante che, una volta cliccato, reindirizza l’utente al sito web clone. La creazione e gestione del sito web clone e del dominio da inserire prima di perpetrare l’attacco devono essere sviluppati separatamente.
 
-Per com’è stata elaborata l’infrastruttura del test, l’indirizzo e-mail ufficiale da cui gli utenti ricevono messaggi di posta è `no-reply@sept.tech`, mentre la casella postale finta (utilizzata per effettuare l’attacco vero e proprio) è `no-reply.sept.tech@gmail.com`. Il nome associato alle caselle di posta è identico: `SEPT - Social Engineering Prevention Tool`.[^22] Il vettore di attacco è invece sviluppato utilizzando HiddenEye[^23]; l’URI è generato automaticamente dal suddetto tool sfruttando le infrastrutture Ngrok e Serveo[^24] (vedi le Figure [fig:sept-attack-back], [fig:sept-attack-front] e [fig:sept-attack-front-2]).
+Per com’è stata elaborata l’infrastruttura del test, l’indirizzo e-mail ufficiale da cui gli utenti ricevono messaggi di posta è `no-reply@sept.tech`, mentre la casella postale finta (utilizzata per effettuare l’attacco vero e proprio) è `no-reply.sept.tech@gmail.com`. Il nome associato alle caselle di posta è identico: `SEPT - Social Engineering Prevention Tool`. Il vettore di attacco è invece sviluppato utilizzando HiddenEye[^23]; l’URI è generato automaticamente dal suddetto tool sfruttando le infrastrutture Ngrok e Serveo.
 
 Per maggiori informazioni sulla creazione ed utilizzo del vettore d’attacco, consultare la sezione [part:userguide-attack-vector]
-
-![Pannello utilizzato per abilitare la procedura di attacco: è necessario definire l’utente verso cui compiere l’attacco e il link al sito web malevolo.<span data-label="fig:sept-attack-back"></span>](resource/userguide-sept-attack-back.png){width="85.00000%"}
-
-![Messaggio di posta elettronica malevolo inviato con l’indirizzo e-mail `no-reply.sept.tech@gmail.com`. Si noti il pulsante che indirizza al sito web clone.<span data-label="fig:sept-attack-front"></span>](resource/userguide-sept-attack-front.png){width="85.00000%"}
-
-![Schermata visualizzata nella pagina principale dell’area privata dell’utente, per informarlo del test in corso.<span data-label="fig:sept-attack-front-2"></span>](resource/userguide-sept-attack-front-2.png){width="85.00000%"}
 
 ##### Completamento dell’attacco
 
@@ -461,29 +486,16 @@ L’amministratore rileva l’apertura del messaggio di posta elettronica da par
 
 In ogni caso, l’attacco si considera concluso un’ora dopo l’apertura dell’e-mail da parte del potenziale utente “vittima".
 
-![Schermata di cattura delle informazioni dal sito clone utilizzato per l’attacco. In questo caso, l’attacco dovrebbe ritenersi concluso con successo. Se nessuna informazione giunge al terminale dell’esecutore del test, bisognerà attendere un’ora dall’apertura dell’e-mail utente prima di sancire la conclusione dell’attacco e considerarlo completato con esito negativo.<span data-label="fig:sept-attackcomplete-back"></span>](resource/userguide-sept-attackcomplete-back.png){width="85.00000%"}
-
 #### Somministrazione del sondaggio finale
 
-Il test termina con la somministrazione del sondaggio finale; esso viene abilitato dall’amministratore per ciascun utente e consiste in una serie di domande chiuse per valutare l’efficacia del test, del modello di prevenzione SEADMv2 (nel caso del gruppo due) e riguardo all’ingegneria sociale (vedi Figure [fig:sept-finalsurvey-back], [fig:sept-finalsurvey-front], [fig:sept-finalsurvey-front-2] e [fig:sept-finalsurvey-front-3])). Il sondaggio finale è stato sviluppato utilizzando il servizio online Typeform[^25].
+Il test termina con la somministrazione del sondaggio finale; esso viene abilitato dall’amministratore per ciascun utente e consiste in una serie di domande chiuse per valutare l’efficacia del test, del modello di prevenzione SEADMv2 (nel caso del gruppo due) e riguardo all’ingegneria sociale. Il sondaggio finale è stato sviluppato utilizzando il servizio online Typeform.
 
 L’esito del test e i sondaggi finali verranno utilizzati per proporre una versione rivisitata e migliorata di SEADMv2, considerando anche la possibilità che essa venga applicata in contesti non aziendali.
 
-![Schermata di amministrazione utilizzata per abilitare il sondaggio finale ad un determinato utente.<span data-label="fig:sept-finalsurvey-back"></span>](resource/userguide-sept-finalsurvey-back.png){width="85.00000%"}
-
-![Schermata visualizzata nella pagina principale dell’area privata dell’utente per informarlo dell’attivazione del sondaggio finale e fornirgli il collegamento per aprirlo.<span data-label="fig:sept-finalsurvey-front"></span>](resource/userguide-sept-finalsurvey-front.png){width="85.00000%"}
-
-![Pagina iniziale del sondaggio finale. Esso è sviluppato utilizzando TypeForm<span data-label="fig:sept-finalsurvey-front-2"></span>](resource/userguide-sept-finalsurvey-front-2.png){width="85.00000%"}
-
-![E-mail informativa inviata automaticamente all’utente finale per informarlo dell’attivazione del sondaggio finale.<span data-label="fig:sept-finalsurvey-front-3"></span>](resource/userguide-sept-finalsurvey-front-3.png){width="85.00000%"}
-
 #### Completamento del test
 
-L’ultima parte del processo corrisponde con il completamento del test. L’amministratore deve confermare il completamento del test dall’apposita sezione del pannello di amministrazione (v. [fig:sept-close-1]): l’utente riceverà un’e-mail informativa a riguardo (v. (v. [fig:sept-close-2])). Da qui, il test potrà considerarsi concluso.
+L’ultima parte del processo corrisponde con il completamento del test. L’amministratore deve confermare il completamento del test dall’apposita sezione del pannello di amministrazione: l’utente riceverà un’e-mail informativa a riguardo. Da qui, il test potrà considerarsi concluso.
 
-![Pannello d’amministrazione per confermare il completamento del test.<span data-label="fig:sept-close-1"></span>](resource/userguide-sept-close-2.png){width="85.00000%"}
-
-![E-mail informativa inviata automaticamente all’utente finale per informarlo del completamento del test.<span data-label="fig:sept-close-2"></span>](resource/userguide-sept-close-1.png){width="85.00000%"}
 
 Le pagine del portale
 ---------------------
@@ -537,145 +549,5 @@ In ogni momento l’utente può chiudere la sessione e uscire dall’applicazion
 ##### Pagina d’amministrazione
 
 Se l’utente che effettua l’accesso è l’amministratore del sistema, allora può visualizzare la pagina di amministrazione e attuare le varie fasi del test. Può essere aperta cliccando sull’omonima etichetta dal menu laterale.
-
-Preparazione ed esecuzione del vettore d’attacco {#part:userguide-attack-vector}
-================================================
-
-Preparazione dell’ambiente software per il vettore d’attacco
-------------------------------------------------------------
-
-L’applicativo utilizzato per compiere l’attacco è da compilare da linea di comando in ambiente Linux; per questo, è consigliato installare Kali Linux come distribuzione, in modo tale da avere un ambiente robusto e completo per poter compiere attacchi di ingegneria sociale.
-
-#### Note sul metodo di installazione per Kali Linux
-
-La distribuzione Kali deve essere installata standalone su una partizione del computer; l’installazione come sotto-sistema su Windows (utilizzando WSL, 1 e 2) o su macchina virtuale compromette alcune funzionalità e non permette l’utilizzo dei servizi ngrok e serveo, necessari per creare un tunnel pubblico attraverso cui gli utenti esterni possano fruire delle risorse originariamente disponibili su rete locale generate del computer (e in questo caso, il sito web clone).
-
-#### Note sulla procedura di installazione per Kali Linux
-
-Kali Linux può essere installato facilmente scaricando la distribuzione direttamente dal portale ufficiale o mediante il torrent fornito da Offensive Security (l’organizzazione autrice la distribuzione); durante la procedura di installazione, è preferibile lasciare invariati i parametri predefiniti e selezionare le opzioni consigliate.
-
-Installazione di HiddenEye
---------------------------
-
-Per perpetrare l’attacco, verrà utilizzato HiddenEye; è stato scelto questo rispetto ad altri applicativi per la capacità di mantenere più connessioni simultanee con l’esterno e per le possibilità di sviluppare un vettore d’attacco che tenti di catturare informazioni sulla localizzazione (gli altri applicativi si limitano a tentare di catturare le informazioni di accesso per servizi online famosi, come e-mail e password di Gmail).
-
-Per installare HiddenEye su Kali Linux, seguire la procedura descritta nella sezione “Usage and Installation" della fonte @git:hiddeneye.
-
-Esecuzione di HiddenEye e utilizzo
-----------------------------------
-
-Dopo aver completato la procedura di installazione, compilare da linea di comando:
-
-    cd /path/to/hiddeneye 
-    sudo python3 HiddenEye.py
-
-Avviare il tool e accettare i termini e condizioni, così come richiesto dalla procedura di attivazione di HiddenEye. Assicurarsi inoltre di essere connessi ad internet.
-
-Per replicare l’esecuzione *in quantum huiusmodi* in questa monografia: aprire l’applicativo e da linea di comando selezionare le seguenti opzioni:
-
-1.  dal menu principale di HiddenEye: “0A";
-
-2.  successivamente l’opzione “2" per impostare Google Drive come sito clone attraverso cui ottenere le informazioni sulla posizione;
-
-3.  nei seguenti campi, leggere le informazioni riportate e scegliere se digitare ‘N’ o ‘Y’ se si vuole rifiutare o abilitare la funzionalità in fase di attacco;
-
-4.  inserire una porta, strettamente maggiore di 1024;
-
-5.  fornire quindi un URI verso cui reindirizzare l’utente successivamente all’attacco.
-
-Ulteriori informazioni sull’installazione ed esecuzione del vettore d’attacco, dell’infrastruttura e del portale
-================================================================================================================
-
-In questo documento è stato presentata l’installazione ed utilizzo del vettore d’attacco e dell’infrastruttura del portale per il particolare test, utilizzando la versione iniziale fornita nel GitHub @git:github-personale. Per versioni aggiornate e la documentazione completa di installazione dell’infrastruttura e del vettore d’attacco, visitare la pagina GitHub del progetto (v. @git:github-personale).
-
-Analisi degli strumenti forniti per il test {#appendix:mu-and-seadmv2-practic}
-===========================================
-
-Manuale Utente
---------------
-
-Il manuale utente contiene un riassunto rivisto e semplificato della parte “Compendio di Ingegneria Sociale" presente in questo documento. L’obiettivo è illustrare in maniera generale cosa sia il fenomeno dell’ingegneria sociale, proporre alcuni esempi reali e descrivere alcune tecniche di prevenzione che un utente medio può attuare.
-
-Per rendere più semplice la fruizione del manuale utente, si è deciso di accorpare in una pagina specifica del portale l’intero manuale, cercando inoltre di renderlo interattivo; in tal senso, sono state effettuate le seguenti operazioni:
-
--   sviluppo di una pagina web in cui inserire il manuale utente;
-
--   gestione interattiva con ancore all’interno del testo;
-
--   inserimento di collegamenti ipertestuali per approfondire taluni argomenti presentati solo sommariamente nel documento;
-
--   presenza di video ed illustrazioni per migliorare l’apprendimento alla materia;
-
--   sviluppo di un relativo menu per navigare con facilità attraverso le sezioni del manuale.
-
-Il manuale utente viene fornito ad entrambi i gruppi per tutta la durata del test; nonostante sia riconosciuto come uno dei potenziali strumenti di prevenzione, il sondaggio finale non ne analizzerà potenzialità e limiti, in quanto l’obiettivo della trattazione è testare SEADMv2.
-
-Applicazione SEADMv2
---------------------
-
-L’applicazione SEADMv2 implementata nel portale consiste in un sondaggio a risposte chiuse (‘Sì’, No’, ’Non So / Non Credo’) e con condizionali logici, al termine del quale l’utente riceve un consiglio. La quantità di domande dipende dalle risposte date. Lo schema per questo test è stato sviluppato utilizzando il servizio esterno Typeform.
-
-A partire dal modello presentato nella sezione [part:seadmv2], è stato sviluppato un applicativo online a forma di sondaggio che si attenesse il più possibile all’originale; l’obiettivo è infatti testare limiti e potenzialità di tali domande, e migliorarle in modo tale che possano essere facilmente utilizzate, in maniera efficace, da una platea più ampia possibile. Infatti, nonostante le domande del modello siano astratte e generali, è stata scelta un implementazione al pari.
-
-![Modello SEADMv2 con operatori logici utilizzato durante il test. Le linee rosse indicano una risposta negativa (No), le linee verdi positiva (Sì).[fig:seadmv2-full-portal]](resource/seadmv2-full-portal.png){width="textwidth"}
-
-##### Struttura della domanda
-
-Ogni quesito contiene una domanda principale e una descrizione con specificazioni ed esempi diretti, utili per chiarire all’utente la finalità della richiesta.
-
-L’utente può rispondere ‘Sì’, ‘No’, ‘Non so / Non chiaro’:
-
--   Sì, No: il flusso delle domande segue quanto indicato in figura [fig:seadmv2-full-portal];
-
--   ‘Non so / Non chiaro’: verrà sempre posta una domanda successiva, questa opzione, non considerata nel modello originale, è utile per valutare l’effettiva comprensibilità dei quesiti ed eventualmente, in fase conclusiva, proporne di migliorati.
-
-[^1]: La scelta di Namecheap è vincolata a sole ragioni di costo, in quanto era il registrar con prezzo esposto inferiore.
-
-[^2]: P
-[^3]: Molti browser informano l’utente quando la connessione non è sicura, ovvero quando il protocollo non è https (porta 443) ma http (porta 80); in tal senso, la scelta di installare un certificato SSL è atta sia ad aumentare la sicurezza di trasferimento dei dati sia a infondere sicurezza nell’utente finale.
-
-[^4]: Postfix è un popolare Mail Transfer Agent (MTA) open source che può essere utilizzato per instradare e recapitare la posta su un sistema Linux. Si stima che circa il 25% dei server di posta pubblici su Internet esegua Postfix. Fonte: DigitalOcean.
-
-[^5]: Per completare la procedura di implementazione di Postfix, sono state seguite alcune delle indicazioni fornite nella guida <https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-on-ubuntu-20-04>.
-
-[^6]: La scelta è stata ponderata in base alle conoscenze pregresse, le potenzialità, la sicurezza, la robustezza e gli eventuali costi.
-
-[^7]: Le relative documentazioni sono consultabili dalle fonti: Bootstrap (e-mail @site:bootstrap), JQuery (v. @site:jquery), JQuery Easing (v. @site:jquery-easing), Data Tables (v. @site:datatables), SB Admin 2 (v. @site:sb-admin-2).
-
-[^8]: Nel caso si voglia installare il portale su un proprio server, seguire le istruzioni della sezione [part:installation-instructions-for-sept].
-
-[^9]: La presentazione dei fogli di stile viene omessa.
-
-[^10]: La presentazione delle immagini viene omessa.
-
-[^11]: La presentazione dei fogli Javascript viene omessa.
-
-[^12]: Si noti che tutte le pagine sviluppate sono commentate e visionabili dal relativo Github, precedentemente fornito.
-
-[^13]: L’oggetto `UserInfo` creato non conterrà informazioni sul campo password, che sarà impostato a `null`.
-
-[^14]: Per maggiori informazioni, consultare il codice sorgente presente nel relativo GitHub.
-
-[^15]: Per maggiori dettagli, cfr. <https://getcomposer.org/>.
-
-[^16]: Per maggiori dettagli e altre funzionalità disponibili con la libreria, consultare la documentazione dal portale <https://github.com/PHPMailer/PHPMailer>.
-
-[^17]: Per maggiori informazioni visitare la documentazione presente alla fonte <https://github.com/phpseclib/phpseclib>.
-
-[^18]: Blowfish è un meccanismo crittografico simmetrico a blocchi che può essere utilizzato come sostituto immediato di DES. Richiede una chiave di lunghezza variabile, da 32 bit a 448 bit, rendendola ideale sia per uso personale che globale. Blowfish è stato progettato nel 1993 [...], da allora è stato analizzato considerevolmente e sta lentamente guadagnando l’accettazione come un potente algoritmo di crittografia. Blowfish non è brevettato e senza licenza ed è disponibile gratuitamente per tutti gli usi. (fonte <https://www.schneier.com/academic/blowfish/>.)
-
-[^19]: Base64 è un sistema di codifica che consente la traduzione di dati binari in stringhe di testo ASCII, rappresentando i dati sulla base di 64 caratteri ASCII diversi. (cit. fonte <https://it.wikipedia.org/wiki/Base64>).
-
-[^20]: Le scelte progettuali verranno descritte nella sezione riguardante la progettazione dell’applicativo web.
-
-[^21]: Per le specifiche dei gruppi, consultare la sezione [part:campione].
-
-[^22]: L’utente preparato e in grado di utilizzare il modello SEADMv2 potrà scoprire che l’indirizzo e-mail non corrisponde con quello solitamente utilizzato e non procederà a cliccare il pulsante.
-
-[^23]: La progettazione è spiegata nella sezione successiva, il funzionamento è invece presentato nel capitolo [part:vettore-attacco].
-
-[^24]: Maggiori dettagli sul funzionamento e le caratteristiche dei due servizi sono disponibili alle fonti: <https://ngrok.com/> e <https://github.com/milio48/serveo>.
-
-[^25]: Maggiori informazioni sulle caratteristiche e le funzionalità di Typeform all’URI <https://typeform.com>; per il sondaggio finale, leggere la sezione [appendix:sondaggi].
 
 # Personalizzazione
