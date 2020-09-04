@@ -234,7 +234,8 @@ Aprire PhpMyAdmin e compilare da linea di comando il seguente codice sorgente: e
 
     -- Limiti per la tabella `user-informations`
     ALTER TABLE `user-informations`
-    ADD CONSTRAINT `ext-ue` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
+    ADD CONSTRAINT `ext-ue` FOREIGN KEY (`email`) REFERENCES `users` (`email`) 
+    ON DELETE CASCADE ON UPDATE CASCADE;
 ```
 
 #### Funzionamento operativo dei campi presenti nelle tabelle
@@ -295,16 +296,16 @@ Per procedere con l'installazione dell'infrastruttura
     -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato sottostante, modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo (il nome utente e le password degli utenti del DBMS sono stati creati in fase di preparazione dell'ambiente);
 
 ```php
-                    <?php
-                    $host = 'HOST_DBMS'; // normalmente è 'localhost'
-                    $database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
-                    
-                    $username = 'USERNAME_READONLY'; // Username utente database read-only
-                    $password = 'PASSWORD_READONLY'; // Password --
-                    
-                    $usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
-                    $passwordRO = 'PASSWORD_READWRITE'; // Password --
-                    ?>
+<?php
+$host = 'HOST_DBMS'; // normalmente è 'localhost'
+$database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
+
+$username = 'USERNAME_READONLY'; // Username utente database read-only
+$password = 'PASSWORD_READONLY'; // Password --
+
+$usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
+$passwordRO = 'PASSWORD_READWRITE'; // Password --
+?>
 ```
    -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
     
@@ -348,9 +349,17 @@ Operativamente parlando, è necessario svolgere la seguente procedura:
 3. Preparare il questionario per assistenza, con Typeform o simili. {3}
 
 Successivamente, modificare le seguenti righe di codice:
-- Nel file `components/parts/site/seadmv2.xml` modificare la **riga 54** con il collegamento ipertestuale al proprio sondaggio (*QUI_IL_LINK_AL_FORM*):
+- Nel file `components/parts/site/seadmv2.xml` modificare la **riga 54** con il collegamento ipertestuale al proprio sondaggio {1} (il codice mostrato è sviluppato per Typeform):
+
 ```html
-<a class="typeform-share button" href="QUI_IL_LINK_AL_FORM" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#4D72E0;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:20px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true data-submit-close-delay="2" target="_blank">Avvia lo strumento </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+    <a class="typeform-share button" href="QUI_IL_LINK_AL_FORM{1}" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#4D72E0;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:20px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true data-submit-close-delay="2" target="_blank">Avvia lo strumento </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+```
+- nel file `tool-external.php`: cambiare il codice seguendo la procedura Typeform (o simile) per inserire a schermo intero il form su una pagina esterna (embed);
+
+- nel file `components/parts/site/index-final-survey.xml` modificare la **riga 14** con il collegamento testuale al proprio sondaggio {2} (il codice mostrato è sviluppato per Typeform):
+
+```html
+<p><a class="btn btn-primary" target="_blank" href="QUI_IL_LINK_AL_FORM{2}">Avvia il sondaggio finale</a></p>
 ```
 
 ***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
