@@ -28,7 +28,7 @@ Utilizzando tale applicativo, colui che partecipa al test è in grado di trovare
 
 # Installazione ed Utilizzo
 
-**Nota**: Se non hai ancora strutturato un ambiente di sviluppo in grado di contenere l'infrastruttura, segui le istruzioni contenute nella sezione _Preparazione dell'ambiente di sviluppo_, altrimenti passa alla sezione _Installazione dell'Infrastruttura_.
+***Nota di installazione***: Se non hai ancora strutturato un ambiente di sviluppo in grado di contenere l'infrastruttura, segui le istruzioni contenute nella sezione _Preparazione dell'ambiente di sviluppo_, altrimenti passa alla sezione _Installazione dell'Infrastruttura_.
 
 ## Progettazione e sviluppo del portale
 
@@ -40,7 +40,7 @@ Prima di procedere con la creazione del portale vero e proprio, è stato fondame
 
 Tra le varie alternative di hosting online è stato selezionato [DigitalOcean](https://digitalocean.com), per la facilità di utilizzo e i costi contenuti dei piani hosting. Dopo aver creato un account, si è proceduto con la creazione di un VPS (un “droplet", così come denominato da DigitalOcean). Nel caso in cui non fossi in grado di creare autonomamente un droplet e scegliessi DigitalOcean come host della tua infrastruttura, allora [segui questa procedura per la creazione del droplet](https://www.digitalocean.com/docs/droplets/how-to/create/).
 
-**Nota:** Per semplicità di utilizzo e coerenza con i passaggi qui mostrati, installare Ubuntu (ultima versione LTS) nel proprio droplet.
+***Nota di installazione:*** Per semplicità di utilizzo e coerenza con i passaggi qui mostrati, installare Ubuntu (ultima versione LTS) nel proprio droplet.
 
 #### Installazione dell’infrastruttura web
 
@@ -50,7 +50,7 @@ Dopo aver completato la procedura di accesso al droplet, procedere con l’insta
 
 2.  installazione di PhpMyAdmin: per rendere più semplice l’utilizzo di MySQL, è stato installato PhpMyAdmin nel VPS, in questo modo le tabelle e gli utenti del DBMS possono essere gestite visivamente.
 
-**Consigli e guide**: 
+***Note di installazione***: 
 - per l'installazione di LAMP [seguire la procedura qui descritta](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04), selezionando la propria versione di Ubuntu
 - per l'implementazione di PhpMyAdmin [seguire la procedura qui descritta](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
 
@@ -72,7 +72,7 @@ E' consigliabile attivare UFW dalla shell del VPS, bloccando tutte le connession
 Dopo aver definito il nome del portale (nel nostro caso: SEPT - Social Engineering Prevention Tool), è consiglato acquistare un dominio di secondo livello o un dominio gratuito di terzo livello, nel caso in cui si volesse utilizzare un FQDN. Concluso l’acquisto, i nameserver che ospitano il dominio devono essere modificati con quelli di proprietà di DigitalOcean (o del proprietario del VPS a cui ci si appoggia), cosicché tutte le funzionalità del sito vengano gestite da un’unica posizione.
 Successivamente il FQDN deve essere puntato all’indirizzo IPv4 e IPv6 del VPS precedente creato, mediante gli appositi resource record A, AAAA e CNAME (quest’ultimo, utilizzato per indirizzare le richieste` www` a `*`).
 
-**NOTA:** Se è stato utilizzato un dominio Namecheap, Godaddy, etc., è possibile seguire [la seguente procedura](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars).
+***Nota di installazione:*** Se è stato utilizzato un dominio Namecheap, Godaddy, etc., è possibile seguire [la seguente procedura](https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars).
 
 #### Virtual host e certificato SSL
 
@@ -170,41 +170,28 @@ Così facendo, non si dovrà ricorrere all’utilizzo di files `.htaccess` per g
         </Directory>
     </VirtualHost>
 
+***Nota di installazione***: per modificare i file `.conf` è possibile utilizzare un semplice editor di testo da linea di comando, come `nano` o `vim`.
 #### Ultimazione dell’ambiente di sviluppo
 
-Dopo aver creato la cartella che conterrà l'infrastruttura (nel nostro caso: `var/www/sept.tech`), essa deve essere configurata per essere riconosciuta dal sistema come la cartella radice del server web. Se la procedura precedente è stata seguita pedestremente, nessuna azione deve essere effettuata. Tale ospiterà le risorse web da visualizzare dall’URI del FQDN scelto (nel nostro caso: `https://sept.tech`).
+Dopo aver creato la cartella che conterrà l'infrastruttura (nel nostro caso: `var/www/sept.tech`), quest'ultima deve essere configurata per essere riconosciuta dal sistema come la cartella radice del server web. Se la procedura precedente è stata seguita pedestremente, nessuna azione deve essere effettuata. Tale ospiterà le risorse web da visualizzare dall’URI del FQDN scelto (nel nostro caso: `https://sept.tech`).
 
-Progettazione del portale {#part:prog-portal-prep-dbms}
+Progettazione del portale 
 -------------------------
 
-Prima di procedere con lo sviluppo del codice, è stato progettato come implementare le funzioni fondamentali per l’espletamento del test, anche tenendo conto della necessità di creare un’interfaccia facile e intuitiva per l’utente finale. A partire dalle considerazioni teoriche sviluppate nella sezione [part:progettazione] si è proceduto con la definizione di:
+### Mappa del sito
 
--   mappa del sito;
+È la struttura del portale e contiene tutte le pagine potenzialmente visitabili; dato che esistono utenti con diversi livelli di privilegi, per determinate pagine essa presenta logiche basilari di permessi di visione. 
 
--   implementazione del database;
+### Creazione del database e delle relative tabelle
 
--   logiche di funzionamento del sito.
-
-#### Mappa del sito
-
-È la struttura del portale e contiene tutte le pagine potenzialmente visitabili; dato che esistono utenti con diversi livelli di privilegi, per determinate pagine essa presenta logiche basilari di permessi di visione. Vedi la Figura [fig:website-sitemap].
-
-![Mappa del sito.<span data-label="fig:website-sitemap"></span>](resource/website-sitemap.pdf){width="85.00000%"}
-
-#### Creazione del database e delle relative tabelle
-
-Il database dovrà contenere informazioni sugli utenti; analizzando le basi teoriche presentate nella sezione [part:progettazione], il database utilizzato dal portale (chiamato ‘app‘) dovrà contenere due tabelle:
+Il database contiene le informazini sugli utenti utilizzando due tabelle:
 
 -   una tabella per mantenere le informazioni di accesso degli utenti: la tabella ‘users‘ conterrà le informazioni di accesso degli utenti e verrà utilizzata per le relative operazioni;
 
 -   una tabella per mantenere i dati di avanzamento del test per singolo utente e altri dati demografici acquisiti con il sondaggio iniziale (in fase di registrazione): esso corrisponderà con la tabella ‘user-informations‘.
 
-![Modello Entità relazione delle tabelle del database.<span data-label="fig:website-er-database"></span>](resource/userguide-phpmyadmintables.png){width="85.00000%"}
-
-La Figura [fig:website-er-database] illustra il modello entità-relazione tra le due tabelle; si noti che entrambe le tabelle hanno `‘email‘` come chiave primaria e unica, essa è inoltre chiave esterna.
-
-Il codice sorgente illustrato nel listato [sql-creator] è stato utilizzato per generare il database e le relative tabelle.
-
+Aprire PhpMyAdmin e compilare da linea di comando il seguente codice sorgente: esso genererà il database e le relative tabelle.
+    
     -- Database: `app`
     CREATE DATABASE app;
 
@@ -245,8 +232,7 @@ Il codice sorgente illustrato nel listato [sql-creator] è stato utilizzato per 
     ALTER TABLE `user-informations`
     ADD CONSTRAINT `ext-ue` FOREIGN KEY (`email`) REFERENCES `users` (`email`) ON DELETE CASCADE ON UPDATE CASCADE;
 
-[code:userguide-sept-sql-code]
-
+#### Funzionamento operativo dei campi presenti nelle tabelle
 ##### Tabella ‘users‘
 
 La tabella ‘users‘ viene utilizzata per memorizzare le informazioni di accesso degli utenti registrazioni; essa contiene:
@@ -291,501 +277,7 @@ La tabella ‘user-informations‘ è utilizzata per memorizzare le informazioni
 
     -   9: il test è stato completato.
 
-#### Logiche di funzionamento del portale
-
-Per essere in grado di sviluppare in maniera consistente il portale, è importante avere a mente come esso funzionerà. Prima di procedere con lo sviluppo vero e proprio, si è scelto di sviluppare tre diagrammi che descrivessero il funzionamento front-end e back-end delle tre funzioni principali e scegliere quali infrastrutture esterne sarebbero servite per completare tutti i servizi da fornire.
-
-I diagrammi creati corrispondono a:
-
--   procedura di registrazione: il diagramma è diviso in quattro parti: il front-end utente, il front-end amministratore, il back-end applicativo e l’interazione con il DBMS. Vedi la Figura [fig:flowchart-reg];
-
--   procedura di accesso e di reimpostazione password: esso descrive la procedura di accesso al sito, dividendo le aree come nel diagramma precedente: vedi la Figura [fig:flowchart-log];
-
--   funzionamento generale delle pagine del sito: esso illustra le pagine del portale che possono essere visualizzate, ed eventualmente quali permessi (appartenenza ad un determinato gruppo, attivazione dell’account, area privata o pubblica) bisogna possedere per la visualizzazione; vedi la Figura [fig:website-sitemap];
-
--   procedura di esecuzione del test ed interazione con gli elementi funzionali del portale: viene descritta graficamente la procedura utilizzata per effettuare il test: conoscendola preliminarmente, è più semplice procedere con lo sviluppo; essa è presentata con la Figura [fig:test-execution]
-
-![Procedura di registrazione.<span data-label="fig:flowchart-reg"></span>](resource/register-wro.pdf){width="85.00000%"}
-
-![Procedura di accesso e reimpostazione password.<span data-label="fig:flowchart-log"></span>](resource/login-wro.pdf){width="85.00000%"}
-
-![Procedura di esecuzione del test: nella figura vengono mostrate le interazioni tra front-end, lato utente ed amministratore, back-end (logiche applicative implementate con PHP e SQL) e DBMS.<span data-label="fig:test-execution"></span>](resource/procedure-wro.pdf){width="85.00000%"}
-
-Sviluppo del portale
---------------------
-
-Le considerazioni e valutazioni esposte nella sezione [part:prog-portal] pongono la base progettuale per sviluppare il portale web.
-
-Per mantenere versatile la struttura del portale, è stato deciso di svilupparlo sfruttando le potenzialità della programmazione ad oggetti e creando una ‘struttura’ modulare facilmente adattabile in base alle esigenze di testing del singolo.
-
-#### Scelte di programmazione
-
-Per sviluppare il portale è stato deciso di utilizzare i seguenti linguaggi di programmazione, librerie e servizi esterni[^6]:
-
--   interfaccia grafica: essa verrà sviluppata utilizzando HTML5 e CSS, per semplificare la creazione di una UI user-friendly sarà utilizzato il framework Bootstrap v4.5 e il tema open-source precompilato “SB Admin 2". Inoltre la dinamicità del portale (come, ad esempio, la creazione ed apertura di popup, menu laterali, etc.), sarà implementata a partire da Javascript, la libreria JQuery, le funzionalità native di Bootstrap e le librerie DataTables, utilizzata per la gestione dinamica delle tabelle (filtering, divisione per numero di elementi, ricerca per nome), e JQuery Easing, utilizzato per la gestione “smooth" delle animazioni[^7];
-
--   logica applicativa: il linguaggio di programmazione impiegato per gestire la logica applicativa del portale sarà PHP versione 7, saranno inoltre implementate le librerie PHPMailer, utilizzato per inviare e-mail, e PHP Libsec, utilizzata per le funzione di crittografia;
-
--   interazione con il database: la gestione della connessione sarà lasciata ai driver MYSQLi di PHP, il linguaggio di programmazione delle queries sarà SQL;
-
--   servizi esterni: la Privacy Policy e la Cookie Policy, come già detto, verrà gestita da Iubenda, mentre i sondaggi e i moduli (come il modello di gestione di SEADMv2) verranno sviluppati utilizzando Typeform.
-
-Nei prossimi paragrafi saranno discusse alcune funzionalità specifiche, le scelte di sviluppo personali e le criticità occorse durante la programmazione; per una visione completa del codice di sviluppo è possibile consultare la fonte @git:github-personale[^8].
-
-#### Lista dei files
-
-Vengono ora presentati tutti i file sviluppati per il funzionamento dell’applicativo, ne viene anche data una descrizione delle funzionalità contenute.
-
--   `components`
-
-    -   `applications`: contiene le logiche applicative del portale
-
-        -   `SendMail.php`: la classe SendMail gestisce l’invio di e-mail all’utente finale;
-
-        -   `Session.php`: la classe Session gestisce le intere funzionalità di sessione di un utente: registrazione, login, password dimenticata e funzionamenti interni. È la classe principale del portale, nonché quella che rende possibile l’esecuzione di tutte le dinamiche dell’area privata;
-
-        -   `User.php`: è una classe utilizzata per salvare le informazioni di accesso dell’utente, può essere dunque considerata un po’ come una ‘classe di trasporto’;
-
-        -   `UserInfo.php`: è una classe figlia di ‘User.php’, con essa possono essere salvati i dettagli demografici riguardo l’utente che ha effettuato l’accesso. Anch’essa viene utilizzata come classe di trasporto;
-
-        -   `database`: contiene le classi utili per la connessione con il database;
-
-            -   `Base32.php`: libreria utilizzata per convertire l’input in stringhe a base 32, è inserita in questo percorso in quanto `SiteDAO.php` è la classe che ne fruisce maggiormente;
-
-            -   `SiteDAO.php`: gestisce le richieste con il database e fornisce i risultati alle altre classi “operative", come ad esempio `Session.php`;
-
-            -   `DbConnect.php`: stabilisce la connessione con il database;
-
-            -   `config`: variabili di configurazione:
-
-            -   $>$ `config.php`: contiene le variabili di configurazione per l’accesso al database;
-
-            -   $>$ `keyAgent.php`: contiene alcune chiavi crittografiche pubbliche;
-
-            -   $>$ `mail.settings.php`: contiene le credenziali di accesso e-mail per poter inviare i messaggi di posta con la libreria PHPMailer;
-
-        -   `lib`
-
-            -   `common-functions.php`: contiene alcune funzioni comuni di conversione o trasformazione utilizzate spesso nel portale;
-
-    -   `parts`
-
-        -   `footer.php`: contiene la logica applicativa utilizzata per mostrare il piè di pagina; in base allo stato dell’utente (area privata o pubblica), il piè di pagina stampato varia;
-
-        -   `header.php`: simile al punto precedente, relativo all’intestazione del portale;
-
-        -   `session.php`: gestisce l’avvio della sessione e contiene un oggetto della classe `Session.php` così da poter usufruire dei processi applicativi in esso contenuti;
-
-            -   `site`: contiene tutti gli spezzoni di codice HTML da mostrare, in base alla pagina aperta e alle variabili di stato impostate;
-
-            -   `templates`: contiene i template preimpostati per i messaggi di posta elettronica informativi e malevolo da inviare all’utente ed il testo della sezione “guida utente" dell’area riservata;
-
--   `css`: contiene i fogli di stile per il portale[^9];
-
--   `img`: contiene le immagini utilizzate nel portale[^10];
-
--   `js`: contiene i codici di script per gestire le componenti client dinamiche[^11];
-
--   `vendor`: contiene i framework e le librerie di terze parti;
-
-    -   `bootstrap`
-
-    -   `datatables`
-
-    -   `fontawesome-free`: collezione di icone facilmente implementabili in HTML e CSS;
-
-    -   `jquery`
-
-    -   `query-easing`
-
-    -   `phpmailer`
-
-    -   `phpseclib`
-
-    -   `autoload.php`: script utilizzato per avviare la libreria `phpmailer`;
-
--   `403.php`: pagina di errore 403 personalizzata;
-
--   `404.php`: pagina di errore 404 personalizzata;
-
--   `admin.php`: pagina di amministrazione;
-
--   `forgot-password.php`: pagina front-end per la gestione delle procedure relative alla creazione di una nuova password (password dimenticata);
-
--   `helpdesk.php`: pagina relativa al centro assistenza del portale, consultabile sia pubblicamente che dall’area privata;
-
--   `index.php`: pagina principale dell’area riservata; quando non è stato effettuato l’accesso, l’utente viene reindirizzato a `register.php`;
-
--   `login.php`
-
--   `logout.php`
-
--   `profile.php`: la pagina viene utilizzata per mostrare le informazioni sul proprio profilo all’utente registrato, è consultabile aprendo il link dal menu a tendina da ogni pagina dell’area riservata;
-
--   `register.php`
-
--   `seadmv2.php`: mostra il questionario relativo al modello SEADMv2;
-
--   `tool.external.php`: visualizza il questionario relativo al modello SEADMv2, consultabile in questo caso senza aver effettuato l’accesso al portale;
-
--   `user-guide.php`: presenta la guida all’ingegneria sociale.
-
-Dunque si procede con la presentazione approfondita delle classi e funzionalità più importanti del portale[^12].
-
-#### La logica applicativa e la classe `Session.php`
-
-La classe `Session.php` gestisce la logica dell’intera applicazione, vengono discussi ora i metodi principali in esso contenuti.
-
-##### Costruttore
-
-Il costruttore gestisce l’avvio della sessione e definisce le “variabili di sessione" utili per l’area riservata. Inoltre, inizializza un nuovo oggetto della classe `SiteDAO.php`, deputato alla gestione dell’interazione con il database. Il codice completo del costruttore è presente nel listato [constructor-session-class].
-
-    private $user;
-    private $dao;
-
-    public function __construct()
-    {
-        if( session_status() === PHP_SESSION_DISABLED  )
-            header('HTTP/1.1 403 Forbidden');
-        
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-        
-        if (isset($_SESSION['user']))
-            $this->user = $_SESSION['user'];
-        else
-            $this->user = null;
-        
-        $this->dao = new SiteDAO();
-    }
-
-##### `public function login($email, $password)`
-
-: il file `login.php` passa e-mail e password (crittografata) come parametri, il suddetto metodo penserà a controllare eventuali inconsistenze nei dati immessi (errori, valori non validi) e tenterà il login. In caso di errore notifica l’utente scatenando un’eccezione, catturata dal file di destinazione.
-
-##### `public function logout()`
-
-: scatenato dal file `logout.php`, richiama la funzione di logout dal DAO.
-
-##### `public function register($userData)`
-
-: richiamata da `register.php`, `$userData` contiene un oggetto della classe `UserInfo` con tutti i parametri utili per la registrazione. Il metodo controllerà eventuali inconsistenze nei dati in ingresso e procederà al completamento della prima fase di registrazione, richiamando prima la funzione `register` del DAO, per salvare i dati nel database, e poi il metodo `sendMail` per inviare l’e-mail di verifica della casella postale all’utente finale. In caso di errori, scatena un’eccezione.
-
-##### `public function sendMail($to, $subject, $message)`
-
-: forniti destinatario del messaggio di posta, oggetto e corpo, la funzione gestisce l’invio del messaggio di posta. Per farlo, richiama prima la classe `SendMail`, che implementa la logica per l’invio delle e-mail e la libreria PHPMailer, successivamente le passa i dati e tenta l’invio. In caso di errori, scatena un’eccezione.
-
-##### `private function sendAttackVector($to, $subject, $message)`
-
-: simile al precedente metodo, invia un’e-mail alla casella passata con la variabile `$to`, con l’unica differenza che utilizza la casella di posta “finta" (`no-reply.sept.tech@gmail.com`) e non quella ufficiale, infatti richiama la funzione `sendFake()` e non la funzione `send()` per l’invio.
-
-##### `public function doFinalSurvey($email)` e `private function sendFinalSurvey($to` `, $subject, $message`)
-
-: gestiscono l’invio dell’e-mail informativa per il sondaggio finale. Il primo metodo aggiorna i parametri del database, richiamando la funzione `updateAttack(1,1, $to)`, per segnalare l’attivazione del sondaggio finale, e successivamente richiama il secondo metodo per inviare un’e-mail informativa riguardo all’attivazione dello stesso.
-
-##### `public function validateRegister($auth, $token)`
-
-: gestisce la validazione dell’indirizzo e-mail e riceve i dati dal link aperto dal messaggio di posta preposto alla conferma della casella di posta elettronica. `$auth` e `$token` corrispondono rispettivamente all’indirizzo e-mail dell’utente in Base 32 e al token d’autorizzazione per la conferma delle modifiche. Il metodo semplicemente invia i dati all’omonima classe presente nel DAO, che si connette con il database e aggiorna i parametri per attivare l’account.
-
-##### `public function resendData($email)`
-
-: nel caso in cui l’utente non abbia ricevuto l’e-mail di conferma, può richiederla. Questa funzione pensa a inviare nuovamente il messaggio di posta per la verifica della casella.
-
-##### `resendForgotData($email)`
-
-: simile al precedente, gestisce la logica per reimpostare la password nel caso l’utente l’avesse dimenticata.
-
-##### `public function emCompleted($email)`
-
-: invia un’e-mail informativa all’utente finale informandolo del completamento del test.
-
-##### `public function changePassword($auth, $token, $new)`
-
-: parte della logica utilizzata per reimpostare la password, contatta il DAO per aggiornare la password presente nel database e associata all’utente che ne ha richiesto il cambio con la nuova.
-
-##### `public function isUserExists($email)`
-
-: a partire dall’indirizzo e-mail (chiave primaria e unica) verifica l’esistenza di un utente ad esso associato, contattando l’omonima classe presente in `SiteDAO`. Se esiste, ritorna un oggetto `UserInfo` con i relativi dati, altrimenti ritorna un valore falso.
-
-##### `public function getNotGroupedUsers()` e `... getGroupedUsers()`
-
-: ritornano i valori degli omonimi metodi presenti in `SiteDAO`.
-
-##### `public function changePermissions($email, $group)`
-
-: viene richiamato dal pannello di amministrazione per attivare un’utente ed assegnarlo ad un gruppo. Richiama l’omonima funzione presente in `SiteDAO` per impostare il gruppo di appartenenza dell’utente in corso di attivazione, se l’impostazione va a buon fine, invia l’e-mail di conferma dell’attivazione dell’account.
-
-##### `public function startTest($email, $link)`
-
-: viene richiamata dal pannello di amministrazione per avviare l’attacco, richiama la funzione `updateAttack` del `SiteDAO` per aggiornare i parametri d’attacco dell’utente nel database e invia l’e-mail malevola.
-
-##### `getUsersData()`, `getAtkData($auth), finalizaInTest($auth)`
-
-: sono funzioni pubbliche che richiamano le omonime funzioni presenti nel `SiteDAO`. Ritornano semplicemente i valori ottenuti dai metodi richiamati.
-
-#### Interazione con il database, DAO e la classe `SiteDAO.php`
-
-Per gestire l’interazione con il database si è scelto di utilizzare un pattern architetturale spesso utilizzato nell’ambito delle applicazioni web: il DAO, Data Access Object. In pratica, esso corrisponde ad una classe, con relativi metodi, che coordina e opera le azioni da/per la logica applicativa verso il database; esso permette di mantenere un livello di astrazione più elevato e di rende facilmente mantenibile il codice.
-
-Per istanziare l’accesso al database, la classe `SiteDAO` si appoggia a `DbConnect`, che crea un oggetto di tipo `mysqli` per poter interoperare con il DBMS.
-
-##### Sicurezza, SQL Injection e prepared statements
-
-Il rischio che un utente malevolo cerchi di corrompere l’integrità del DBMS “iniettando" codice dannoso mediante i campi di testo è alta, per ridurre il rischio di rimanere vittima di attacchi SQL Injection sono state implementate le seguenti funzionalità durante lo sviluppo del codice:
-
--   utilizzo dei prepared statement nell’economia delle query in php;
-
--   utilizzo di utenti del DBMS con privilegi limitati;
-
--   sviluppo di un’infrastruttura di supporto per verificare la consistenza delle richieste lato client.
-
-Ampliando lo sguardo, è possibile riscontrare il paradigma MVC nel modo di sviluppare tale applicazione web: in tal senso vengono mantenute divise il modello (la logica operativa), corrispondente alla classe `Session.php`, `SiteDAO.php` e a tutte le classi e i files appendici, la vista (visualizza i dati), corrispondenti ai file .xml di visualizzazione, ed il controller (che riceve i comandi utente e li attua modificando lo stato degli altri componenti), identificato dai files php presenti nella cartella principale.
-
-Dopo aver presentato generalmente le caratteristiche adoperate per comunicare con il DBMS, si discutono i principali metodi della classe `SiteDAO`.
-
-##### `encryptData($data)` e `decrypt($data)`
-
-Le due funzioni codificano e decodificano i dati passati come parametro; sono utilizzate per pseudonimizzare i dati dell’utente e rendere anonimo il test.
-
-##### `private function getToken($length)`
-
-Passata la lunghezza del token da sviluppare (normalmente 32 caratteri), il metodo produce un token casuale e successivamente ne genera l’hash utilizzando l’algoritmo SHA2 a 512 bit.
-
-##### `public function getUserData($email)`
-
-Dopo aver stabilito una connessione “read-only" con il database mediante un oggetto della classe `DbConnect`, prepara ed esegue la query da utilizzare per recuperare i dati di un utente a partire dall’indirizzo e-mail (passato come parametro). Le informazioni sull’utente vengono “salvate" in un oggetto `UserInfo`[^13].
-
-##### `public function loginUser($email, $password)`
-
-Dopo aver stabilito una connessione in sola lettura con il database mediante un oggetto della classe `DbConnect`, controlla l’esistenza dell’indirizzo e-mail immesso dall’utente che sta tentando di effettuare l’accesso, successivamente verifica la password attraverso un confronto in due passaggi: codifica con hash e verifica utilizzando il metodo `password_verify` implementato nativamente in php. Successivamente verifica che l’account sia stato verificato ed attivato dall’amministratore. In caso di errori scatena un’eccezione, catturata dai metodi agli strati applicativi superiori.
-
-##### `public function logout()`
-
-Dopo aver verificato l’esistenza della variabile di sessione, a partire dal cookie volatile `$_SESSION[’user’]`, la distrugge e ritorna il valore vero nel caso in cui la distruzione vada a buon fine, altrimenti falso.
-
-##### `public function isUserExist($email)`
-
-Dopo aver stabilito una connessione “read-only" con il database mediante un oggetto della classe `DbConnect`, verifica l’esistenza di un utente, dato il suo indirizzo e-mail come parametro.
-
-##### `public function getUserToken($email)`
-
-Dopo aver stabilito una connessione “read-only" con il database mediante un oggetto della classe `DbConnect`, recupera il token attuale relativo all’indirizzo e-mail passato come parametro, dopo averne verificata l’esistenza nel database.
-
-Il metodo ritorna un array contenente l’indirizzo e-mail dell’utente e il relativo token.
-
-##### `private function registerUser($userData, $hash) `
-
-Il metodo riceve a partire dalla variabile`$userData` l’oggetto `UserInfo` e il relativo `$hash`; dopo aver recuperato e crittografato l’indirizzo e-mail dal relativo oggetto, verifica l’esistenza dell’utente utilizzando il metodo `isUserExists()`. Se l’utente esiste, istanzia un nuovo oggetto della classe `DbConnect` con permessi di lettura e scrittura per gestire le connessioni con il database; successivamente, preleva le informazioni di registrazione dall’oggetto `$userData`, avvia una transazione SQL e tenta di caricare tutte le informazioni sull’utente nelle tabelle ‘users’ e ‘user-informations’. Se la transazione va a buon fine, ne viene effettuato il “commit", e restituisce un valore vero; viceversa, si richiama il “roll-back" e il metodo scatena una eccezione.
-
-##### `public function register($userData)`
-
-Il metodo riceve un oggetto `UserInfo`, successivamente crea un token utilizzando il metodo `getToken`; successivamnete, tenta la registrazione chiamando il metodo `registerUser` e passandogli `$userData` e il token appena generato.
-
-Se la registrazione va a buon fine (`registerUser->true`), allora il metodo restituisce un array contenente e-mail e token dell’utente appena registrato. Tali parametri verranno utilizzati dal metodo chiamante presente in `Session.php` per inviare l’e-mail di verifica della casella di posta all’utente. Se il processo di registrazione fallisce, il metodo scatena un’eccezione.
-
-##### `public function validateRegister($auth, $token)`
-
-Dopo aver stabilito una connessione con permessi di lettura e scrittura con il database mediante un oggetto della classe `DbConnect`, controlla l’esistenza dell’utente con e-mail `$auth`. Nel caso esista, procede aggiornando il campo ‘active’ e di fatto validando l’indirizzo e-mail dell’utente. Dopo aver completato la procedura di verifica, aggiorna il valore del token, generandolo con `getToken` e caricandolo nella riga del database corrispondente all’utente. In caso di errori in fase di verifica, attivazione dell’account o caricamento del nuovo token, il metodo scatena un’eccezione personalizzata.
-
-##### `public function setNewPassword($email, $new, $hash)`
-
-Dopo aver stabilito una connessione con permessi di lettura e scrittura con il database mediante un oggetto della classe `DbConnect`, il metodo verifica che l’indirizzo e-mail dell’account sia stato verificato (la verifica d’esistenza dell’account è stata fatta in precedenza, nel metodo chiamante della classe `Session`) e la corrispondenza con il token di controllo. Se entrambe le verifiche vengono completate con successo, il metodo si connette al database e richiede il cambio della password. Nel caso in cui il processo di verifica o cambio password non vada a buon fine, la funzione scatena un’eccezione.
-
-##### `public function getNotGroupedUsers()`
-
-Dopo aver stabilito una connessione con permessi di sola lettura con il database mediante un oggetto della classe `DbConnect`, il metodo recupera dal database tutte le informazioni sugli utenti non ancora assegnati ad un gruppo e li formatta per essere utilizzati in un campo “option" HTML. Il metodo viene infatti utilizzato per restituire i nomi dei profili utente ancora da attivare dal pannello di amministrazione. In caso di errore, scatena un’eccezione.
-
-##### `private function getAnonymousString($string)`
-
-È un metodo utilizzato per pseudonimizzare l’indirizzo e-mail dell’utente. Data una stringa in ingresso (`$string`) genera uno pseudonimo calcolando la somma ASCII dei caratteri della stringa e lo codifica in base 64, utilizzando il relativo metodo. Restituisce la stringa ottenuta.
-
-##### `public function changePermissions($email, $group)`
-
-Dopo aver stabilito una connessione con permessi di lettura e scrittura con il database mediante un oggetto `DbConnect`, imposta il gruppo `$group` per l’utente `$email`. Restituisce vero nel caso in cui l’operazione vada a buon fine, altrimenti falso. Il metodo è parte del processo di cambio dei permessi e attivazione dell’account operato dalla relativa funzione della classe `Session` e scatenato dal pannello di amministrazione al momento dell’attivazione ed assegnazione ad un gruppo per un determinato utente.
-
-##### `public function getGroupedUsers($type)`
-
-Dopo aver stabilito una connessione con permessi di sola lettura con il database mediante un oggetto della classe `DbConnect`, il metodo recupera dal database tutte le informazioni sugli utenti appartenenti ad uno specifico gruppo, in base al valore di `$type`:
-
--   `$type = 1`: utenti attivati, attacco non ancora effettuato;
-
--   `$type = 2`: utenti attivati, attacco effettuato, sondaggio ancora da somministrare;
-
--   `$type = 3`: sondaggio somministrato, in attesa del completamento del test così da concludere il test per l’utente.
-
-In caso di errori o problemi, scatena un’eccezione.
-
-##### `public function getUsersData()`
-
-Dopo aver stabilito una connessione con permessi di sola lettura con il database mediante un oggetto della classe `DbConnect`, il metodo preleva dal database tutte le informazioni riguardanti tutti gli utenti iscritti al portale. Successivamente, formatta i valori prelevati a mò di tabella, per la loro visualizzazione all’interno della “tabella degli utenti" presente nell’area di amministrazione.
-
-Nel processo, anonimizza le informazioni sensibili utilizzando il metodo `getAnonymousString`. Nel caso in cui il processo vada a buon fine, il metodo ritorna la tabella, altrimenti scatena un’eccezione.
-
-##### `public function updateAttack($atke, $atkr, $auth)`
-
-Dopo aver stabilito una connessione con permessi di lettura e scrittura con il database con un oggetto della classe `DbConnect`, il metodo aggiorna le informazioni sullo stato del test per il relativo utente (`$auth`) assegnando ai campi ‘attack-sent’ e ‘attack-result’, della tabella ‘user-informations’, i valori delle variabili `$atke` e `$atkr`.
-
-Il metodo ritorna vero in caso di successo, altrimenti falso.
-
-##### `public function getAtk($auth)`
-
-Dopo aver stabilito una connessione con permessi di sola lettura con il database mediante un oggetto della classe `DbConnect`, il metodo preleva per l’utente con e-mail `$auth` i valori dei campi ‘attack-sent’ e ‘attack-result’, della tabella ‘user-informations’, e li restituisce in forma di array. In caso di errore, il metodo scatena un’eccezione.
-
-#### Utilizzo dei file `xml` per la visualizzazione dei contenuti
-
-Piuttosto che scrivere tutto il testo da visualizzare all’utente nelle pagine php front-end, è stato deciso di separare il contenuto dal contenitore e salvare tutte le “stringhe" da visualizzare in file xml distinti in base al nome della pagina finale, allo stato (ad esempio registrazione, conferma registrazione, completamento registrazione sono tutte sotto-sezioni sempre visualizzate nella pagina `register.php`, in base allo stato della richiesta di registrazione) e alla sotto-sezione nella pagina.
-
-Inoltre, le le pagine finali (il contenitori) sono presenti nella cartella principale del sito, mentre tutte le stringhe da stampare vengono salvate nella cartella `components/parts/site`[^14].
-
-#### Il file `session.php` e la gestione della sessione
-
-Il file `session.php` è implementato in tutte le pagine del portale in quanto è il responsabile della gestione della sessione. All’apertura, crea un oggetto di tipo `Session`, dunque preparando e avviando la sessione; successivamente, in base alla tipologia di pagina (privata o pubblica) ed al gruppo di appartenenza dell’utente, personalizza il contenuto mostrato all’utente, fornendo e restringendo la lettura di contenuti. Il listato [session-php] contiene un estratto del file.
-
-    require_once ('components/applications/Session.php');
-
-    //** ROUTINES */
-    $session = new Session();
-
-    if ((isset($public) && !$public && !isset($_SESSION['user']) ||
-     (isset($public) && !$public && isset($_SESSION['user']) 
-     && $_SESSION['user']->getGroup()==0)))
-        header('Location: register.php');
-    else if (isset($public) && $public && isset($_SESSION['user']) &&
-     $_SESSION['user']->getGroup()!=0)
-        header("Location: index.php");
-
-    if (isset($restricted) && isset($_SESSION['user']))
-        if($restricted==1 && $_SESSION['user']->getGroup()<2)
-            header('Location: 403.php');
-
-Le variabili che gestiscono lo stato della sessione e mostrano i contenuti in base ai loro valori di ritorno sono pertanto:
-
--   `$public`: esprime se il contenuto di una pagina sia disponibile pubblicamente o meno. Assume due valori: 0 (contenuto privato), 1 (contenuto pubblico);
-
--   `$restricted`: l’accesso ad alcune pagine private è permesso solamente agli utenti del gruppo 2; quando `$restricted` assume il valore ‘1’ la pagina è ristretta, ‘0’ è il viceversa;
-
--   `$_SESSION[’user’]`: salva i dati dell’utente utili per la sessione. Se è impostata, è stato effettuato l’accesso; per questo viene utilizzata come variabile di stato.
-
-Come già visto, l’inizializzazione della sessione avviene al momento della creazione dell’oggetto `$session`, in quanto è il costruttore della classe `Session` ad avviarla.
-
-#### PHPMailer e l’invio di e-mail dal server {#implement-composer-phpmailer}
-
-Come già detto, per inviare e-mail è stato installato prima un MTA nel server, implementando l’infrastruttura Postfix, e successivamente è stato scelto di utilizzare la libreria PHPMailer per l’invio di e-mail.
-
-Per utilizzare PHPMailer, è stata seguita la procedura:
-
--   implementazione di Composer [v. [email-1-composer]][^15];
-
--   installazione di PHPMailer utilizzando Composer [v. [email-2-composer]];
-
--   implementazione nel codice PHP [v. [email-3-composer]];
-
--   impostazione delle variabili di invio [v. [email-4-composer]][^16];
-
-<!-- -->
-
-    ## Aprire il terminale del server
-    # 1- Download Composer
-    wget https://getcomposer.org/installer
-
-    # 2- Rendere il file eseguibile
-    chmod +x installer
-
-    # 3 - Scaricare composer.phar e renderlo eseguibile
-    sudo php ./installer
-
-    # 4- Rimuovere l'installer
-    rm installer
-
-    # 5 - Impostare permessi globali di eseguibilità di composer
-    sudo mv composer.phar /usr/local/bin/composer
-
-    ## Da linea di comando
-    composer require phpmailer/phpmailer
-
-    ## Da implementare nel file in cui verrà utilizzato
-    use PHPMailerPHPMailerPHPMailer;
-    use PHPMailerPHPMailerException;
-
-    # Caricamento dell'autoloader di Composer
-    require 'vendor/autoload.php'
-
-
-    $mail = new PHPMailer(true);
-        
-    try {
-        // Impostazioni del server
-        $mail->SMTPDebug = 0;                  // Nessun output per debugging
-        $mail->isSMTP();                       // Invio con SMTP
-        $mail->Host = 'smtp1.example.com';     // Host SMTP
-        $mail->SMTPAuth  = true;               // Autenticazione SMTP abilitata
-        $mail->Username  = 'user@example.com'; // SMTP username
-        $mail->Password   = 'secret';          // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // TLS attivata
-        $mail->Port       = 587;              // porta TCP per connettersi via TLS
-        
-        //Contenuto
-        $mail->setFrom('from@example.com', 'Mailer');
-        $mail->addAddress('joe@example.net', 'Joe User');     
-        $mail->addAddress('ellen@example.com');   
-        [...]            
-        
-        $mail->addReplyTo('info@example.com', 'Information');
-            
-        // Contenuto
-        $mail->isHTML(true);             
-        $mail->Subject = $subject;       // prelevato da una variabile esterna
-        $mail->Body    = $message;       // prelevato da una variabile esterna
-        
-        $mail->send();                   // Tentativo di invio del messaggio
-        echo 'Il messaggio di posta è stato inviato';
-    } catch (Exception $e) {
-        echo "Non è stato possibile inviare il messaggio: {$mail->ErrorInfo}";
-    }
-
-#### PHPSeclib e la sicurezza del portale
-
-##### PHPSeclib
-
-La libreria PHPSeclib è stata implementata utilizzando Composer (v. la procedura di installazione di PHPMailer per maggiori dettagli). Essa propone una serie di metodi di crittografia, in linea con i più aggiornati standard di sicurezza[^17].
-
-##### Anonimizzazione e pseudonimizzazione dei dati
-
-E’ stato scelto di anonimizzare i dati sensibili degli utenti partecipanti al test attraverso pseudonimi, così da non poter ricondurre nessuna azione ad un indirizzo e-mail specifico. In tal senso, ogni indirizzo e-mail viene crittografato con la tecnica Blowfish a chiave segreta[^18], ed il risultato codificato in base 64[^19]
-
-Per garantire la sicurezza necessaria agli utenti che si iscrivono al test, la password è crittografata generando un hash a partire dal comando bcrypt (algoritmo blowfish)[^20].
-
-##### Informativa sulla privacy
-
-Nonostante i dati degli utenti siano pseudonimizzati, è stato scelto [...] di sviluppare due informative che l’utente deve accettare prima di completare la registrazione al portale:
-
--   “Privacy Policy": informativa sulla privacy;
-
--   “Cookie Policy": informativa sui cookie collezionati e sul loro impiego.
-
-Per scrivere ed implementare un’informativa completa, che contenesse informazioni riguardo i dati collezionati dal sito e quelli potenzialmente ottenibili con l’attacco di ingegneria sociale, è stato deciso di appoggiarsi ad una piattaforma erogatrice di servizi di policy: Iubenda (vedi <https://iubenda.it>).
-
-Iubenda fornisce servizi personalizzati in grado di generare automaticamente le informative sulla privacy e sui cookie necessarie per i propri scopi e conformi al GDPR (Regolamento generale sulla protezione dei dati Europeo), a partire da un editor visuale.
-
-#### Bootstrap e l’interfaccia grafica
-
-Per semplificare la creazione di un’interfaccia grafica gradevole ed intuitiva è stato deciso di utilizzare il framework Bootstrap, versione 4.7. Inoltre, è stato utilizzato il template SB Admin 2 e riadattato alle richieste del portale.
-
-Entrambi gli strumenti sono rilasciati sotto licenza MIT e quindi di libero utilizzo.
-
-##### I popup di stato
-
-Per semplificare la fruizione di alcune funzionalità dell’applicativo, anche grazie alle potenzialità di Bootstrap, sono stati implementati tre popup:
-
-1.  consultazione dello stato del test: dalla pagina principale, in alto a destra, è possibile cliccare sul pulsante “Stato del Test"; si aprirà un popup che fornisce informazioni riguardo allo stato attuale del test per l’utente;
-
-2.  menu a tendina in corrispondenza dell’indirizzo e-mail: cliccando sull’indirizzo e-mail associato al proprio utente nel menu in alto a destra, compare un menu a tendina attraverso cui è possibile consultare i dati del proprio profilo ed effettuare il logout;
-
-3.  logout: la pagina di logout si apre in un pop-up.
-
-Installazione della piattaforma {#part:installation-instructions-for-sept}
-===============================
+## Installazione della piattaforma {#part:installation-instructions-for-sept}
 
 Per installare su un proprio server la piattaforma, è consigliato seguire la procedura descritta nella sezione ‘Manual’ del repository GitHub dell’infrastruttura (vedi fonte @git:github-personale); in questa documentazione viene presentata la procedura di installazione della versione iniziale dell’infrastruttura.
 
