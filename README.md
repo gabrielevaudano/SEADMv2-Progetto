@@ -306,7 +306,7 @@ La tabella ‘user-informations‘ è utilizzata per memorizzare le informazioni
 
 Per procedere con l'installazione dell'infrastruttura
 
--   scaricare dalla cartella ‘Website’ di questo repository il progetto del portale e spostarlo nella cartella principale del server web pubblico o locale (nel nostro caso `var/www/sept.tech`;
+-   scaricare dalla cartella `Website` di questo repository il progetto del portale e spostarlo nella cartella principale del server web pubblico o locale (nel nostro caso `var/www/sept.tech`;
 
 -   preparare i file necessari per il funzionamento del database e delle funzioni di invio e-mail: nel ‘git’ appena scaricato manca la cartella `config` che contiene al suo interno i files di configurazione per connettersi al database ed ai server di posta elettronica. Procedere con la configurazione come segue:
 
@@ -403,7 +403,9 @@ Kali Linux può essere installato facilmente scaricando la distribuzione diretta
 
 Per perpetrare l’attacco, è stato utilizzato HiddenEye; è stato scelto questo rispetto ad altri applicativi per la capacità di mantenere più connessioni simultanee con l’esterno e per le possibilità di sviluppare un vettore d’attacco che tenti di catturare informazioni sulla localizzazione (gli altri applicativi si limitano a tentare di catturare le informazioni di accesso per servizi online famosi, come e-mail e password di Gmail).
 
-Per ripetere la procedura come fatta in fase di test originale: installare HiddenEye su Kali Linux, [seguire la procedura descritta nella sezione "Usage and Installation" dell'applicazione](https://github.com/DarkSecDevelopers/HiddenEye).  
+Per ripetere la procedura come fatta in fase di test originale: installare HiddenEye su Kali Linux, [seguire la procedura descritta nella sezione "Usage and Installation" dell'applicazione](https://github.com/DarkSecDevelopers/HiddenEye). 
+
+***Note di installazione***: un branch del tool HiddenEye, stabile e opportunamente modificato per le finalità del test, è disponibile in questa repository, nella cartella `Attack Vector/HiddenEye`.
 
 ### Esecuzione di HiddenEye e utilizzo
 
