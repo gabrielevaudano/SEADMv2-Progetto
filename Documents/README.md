@@ -1,0 +1,1 @@
+Privacy policy e cookie policy presentati in questo capitolo fanno parte del test sviluppato per la tesi di laurea e fungono da esempio per eventuali futuri test. Essi sono stati sviluppati utilizzando il servizio esterno Iubenda.
