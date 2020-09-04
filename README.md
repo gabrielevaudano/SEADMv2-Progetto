@@ -50,19 +50,19 @@ Dopo aver completato la procedura di accesso al droplet, procedere con l’insta
 
 2.  installazione di PhpMyAdmin: per rendere più semplice l’utilizzo di MySQL, è stato installato PhpMyAdmin nel VPS, in questo modo le tabelle e gli utenti del DBMS possono essere gestite visivamente.
 
+##### Inizializzazione del DBMS e creazione degli utenti
+L'infrastruttura richiede per il collegamento con il DBMS due tipologie utenti con diritti diversi:
+
+- utente con permessi di sola lettura: SELECT, SHOW VIEW
+- utente con soli permessi di lettura e scrittura delle tabelle: SELECT, SHOW VIEW, INSERT INTO, UPDATE
+
+_Attenzione: tienine a mente l'username e la password che serviranno in fase di configurazione dell'infrastruttura, nel file `config.php`._
+
 ***Note di installazione***: 
 - per l'installazione di LAMP [seguire la procedura qui descritta](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-ubuntu-18-04), selezionando la propria versione di Ubuntu
 - per l'implementazione di PhpMyAdmin [seguire la procedura qui descritta](https://www.digitalocean.com/community/tutorials/how-to-install-and-secure-phpmyadmin-on-ubuntu-18-04)
+- per creare utenti con MySQL puoi [seguire la procedura qui descritta](https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql) oppure [leggere la documentazione MySQL completa](https://dev.mysql.com/doc/mysql-getting-started/en/)
 
-##### Configurazione del DBMS
-
-Per configurare il DBMS si è proceduto come segue:
-
--   installazione ed implementazione di MySQL con il motore InnoDB;
-
--   installazione di phpMyAdmin;
-
--   modifica dei permessi di accesso e creazione di due utenti del database utili per i fini del portale: un utente “read-only" con soli permessi di lettura (SELECT e SHOW VIEW) e un utente “read-write" con permessi estesi (SELECT, UPDATE, INSERT INTO e SHOW VIEW).
 
 #### Impostazione del firewall
 E' consigliabile attivare UFW dalla shell del VPS, bloccando tutte le connessioni eccetto SSH, HTTPS, FTP e SMTP.
@@ -171,12 +171,12 @@ Così facendo, non si dovrà ricorrere all’utilizzo di files `.htaccess` per g
     </VirtualHost>
 
 ***Nota di installazione***: per modificare i file `.conf` è possibile utilizzare un semplice editor di testo da linea di comando, come `nano` o `vim`.
+
 #### Ultimazione dell’ambiente di sviluppo
 
 Dopo aver creato la cartella che conterrà l'infrastruttura (nel nostro caso: `var/www/sept.tech`), quest'ultima deve essere configurata per essere riconosciuta dal sistema come la cartella radice del server web. Se la procedura precedente è stata seguita pedestremente, nessuna azione deve essere effettuata. Tale ospiterà le risorse web da visualizzare dall’URI del FQDN scelto (nel nostro caso: `https://sept.tech`).
 
-Progettazione del portale 
--------------------------
+## Progettazione del portale 
 
 ### Mappa del sito
 
@@ -277,39 +277,34 @@ La tabella ‘user-informations‘ è utilizzata per memorizzare le informazioni
 
     -   9: il test è stato completato.
 
-## Installazione della piattaforma {#part:installation-instructions-for-sept}
+## Installazione della piattaforma 
 
-Per installare su un proprio server la piattaforma, è consigliato seguire la procedura descritta nella sezione ‘Manual’ del repository GitHub dell’infrastruttura (vedi fonte @git:github-personale); in questa documentazione viene presentata la procedura di installazione della versione iniziale dell’infrastruttura.
+Per procedere con l'installazione dell'infrastruttura
 
--   seguire la procedura di configurazione descritta nella sezione [part:prog-portal-prep-am-dev] e il paragrafo sulla creazione del database e delle relative tabelle alla sezione [part:prog-portal-prep-dbms]. Ricordarsi di creare due utenti del database con diversi diritti: uno con soli permessi di lettura e l’altro con permessi di lettura e scrittura;
+-   scaricare dalla cartella ‘Website’ di questo repository il progetto del portale e spostarlo nella cartella principale del server web pubblico o locale (nel nostro caso `var/www/sept.tech`;
 
--   scaricare dalla cartella ‘website’ di GitHub il progetto del portale e spostarlo nella cartella principale visualizzata dal server web (pubblico o locale);
+-   preparare i file necessari per il funzionamento del database e delle funzioni di invio e-mail: nel ‘git’ appena scaricato manca la cartella `config` che contiene al suo interno i files di configurazione per connettersi al database ed ai server di posta elettronica. Procedere con la configurazione come segue:
 
--   preparare i file necessari per il funzionamento del database e delle funzioni di invio e-mail: nel ‘git’ appena scaricato manca la cartella “config" che contiene al suo interno i files di configurazione per connettersi al database ed ai server di posta elettronica. Procedere con la configurazione come segue:
+    -   creazione della cartella: aprire il percorso `components/applications/database` del portale e creare all’interno di `database` la cartella `config`;
 
-    -   creazione della cartella: aprire il percorso `components/applications/database` e creare all’interno di `database` la cartella `config`;
+    -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato sottostante, modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo (il nome utente e le password degli utenti del DBMS sono stati creati in fase di preparazione dell'ambiente);
 
-    -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato [conf-database],
 
                     <?php
                     $host = 'HOST_DBMS'; // normalmente è 'localhost'
                     $database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
                     
-                    $username = 'USERNAME_READONLY';
-                    $password = 'PASSWORD_READONLY';
+                    $username = 'USERNAME_READONLY'; // Username utente database read-only
+                    $password = 'PASSWORD_READONLY'; // Password --
                     
-                    $usernameRO = 'USERNAME_READWRITE';
-                    $passwordRO = 'PASSWORD_READWRITE';
+                    $usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
+                    $passwordRO = 'PASSWORD_READWRITE'; // Password --
                     ?>
 
-        modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo;
-
-    -   creazione del file di configurazione dell’e-mail: dopo aver seguito la procedura di installazione di Composer e PHPMailer (v.[implement-composer-phpmailer]), senza impostare le variabili di configurazione per le caselle di posta, procedere creando il file `mail.settings.php` nello stesso percorso del file precedente. Copiare il codice del listato [set-mail-global], adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
-
--   personalizzazione del contenuto: se si vuole personalizzare il testo da visualizzare all’utente finale, è importante ricordare che tutte le stringhe testuali sono presenti, catalogate, nella cartella `components/parts/site`, mentre i templates dei messaggi di posta nella cartella `components/parts/templates`. Per cambiare il testo, semplicemente modificare il contenuto dei file `xml` presenti all’interno delle due cartelle.
-
-<!-- -->
-
+    -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
+    
+```php
+    <!-- -->
     <?php
     // Configurazione e-mail per i messaggi di posta informativi
     $emailHost = 'mail.privateemail.com';
@@ -328,20 +323,26 @@ Per installare su un proprio server la piattaforma, è consigliato seguire la pr
     $emailFakeFrom = 'no.reply.sept.tech@gmail.com';
     $emailFakeFromLabel = 'SEPT - Social Engineering Prevention Tools';
     ?>
+```
 
-Rifiniti gli ultimi dettagli, la piattaforma sarà pronta per essere utilizzata.
+Rifiniti gli ultimi dettagli, la piattaforma sarà pronta per essere utilizzata. 
 
-Utilizzo della piattaforma
-==========================
+#### Inizializzazione ed impostazione dei servizi esterni
+Il portale si avvale del servizio Typeform e Iubenda per l'erogazione dei sondaggi e della privacy e cookie policy; essendo nativamente calzati per le esigenze del test compiuto, nel caso in cui si voglia ripetere il test in un ambiente di sviluppo e condizioni di contorno diverse, bisogna reimpostare tutta questa parte: per farlo, seguire la spiegazione seguente.
+
+
+
+***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
+
+# Utilizzo della piattaforma
 
 In questa sezione è illustrata la procedura di normale utilizzo della piattaforma. Essa coinvolge sia l’utente finale che l’amministratore del sistema, dunque nel corso della trattazione saranno mostrati tanto i procedimenti “back-end" quanto le funzionalità “front-end".
 
 Per chiarire concetti difficilmente immaginabili attraverso una semplice lettura, il testo è arricchito grazie ad alcune figure di sintesi, contenenti le schermate mostrate agli utenti nel corso del test.
 
-Procedura di utilizzo
----------------------
+## Procedura di utilizzo
 
-La piattaforma è stata sviluppata a partire da [part:prog-portal], pertanto il test richiede l’interazione di due attori:
+Il test richiede l’interazione di due attori:
 
 -   l’amministratore del sistema: colui che “attiva" le fasi d’attacco dal pannello di amministrazione;
 
