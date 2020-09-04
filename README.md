@@ -194,9 +194,9 @@ Aprire PhpMyAdmin e compilare da linea di comando il seguente codice sorgente: e
 
 ```sql
     -- Database: `app`
-    CREATE DATABASE app;
-
-    ----------------------------------------------
+    CREATE DATABASE `app`;
+    
+    
     -- Struttura della tabella `user-informations`
 
     CREATE TABLE `user-informations` (
