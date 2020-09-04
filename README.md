@@ -295,17 +295,17 @@ Per procedere con l'installazione dell'infrastruttura
 
     -   creazione del file di configurazione del database: dopo essere entrati nel percorso relativo alla cartella `config`, creare il file `config.php` e inserire al suo interno il contenuto del listato sottostante, modificando i valori in corrispondenza delle variabili con quelli del proprio ambiente di sviluppo (il nome utente e le password degli utenti del DBMS sono stati creati in fase di preparazione dell'ambiente);
 
-```php
-<?php
-$host = 'HOST_DBMS'; // normalmente è 'localhost'
-$database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
+        ```php
+        <?php
+        $host = 'HOST_DBMS'; // normalmente è 'localhost'
+        $database = 'NOME_DATABASE'; // se hai seguito la procedura, è 'app'
 
-$username = 'USERNAME_READONLY'; // Username utente database read-only
-$password = 'PASSWORD_READONLY'; // Password --
+        $username = 'USERNAME_READONLY'; // Username utente database read-only
+        $password = 'PASSWORD_READONLY'; // Password --
 
-$usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
-$passwordRO = 'PASSWORD_READWRITE'; // Password --
-?>
+        $usernameRO = 'USERNAME_READWRITE'; // Username utente database read-write
+        $passwordRO = 'PASSWORD_READWRITE'; // Password --
+        ?>
 ```
    -   creazione del file di configurazione dell’e-mail: creare il file `mail.settings.php` nello stesso percorso del file precedente (`components/applications/database`). Copiare il codice del listato sottostante, adattandolo ai propri server mail e, in generale, al proprio ambiente di sviluppo.
     
@@ -352,7 +352,7 @@ Successivamente, modificare le seguenti righe di codice:
 - Nel file `components/parts/site/seadmv2.xml` modificare la **riga 54** con il collegamento ipertestuale al proprio sondaggio {1} (il codice mostrato è sviluppato per Typeform):
 
 ```html
-    <a class="typeform-share button" href="QUI_IL_LINK_AL_FORM{1}" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#4D72E0;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:20px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true data-submit-close-delay="2" target="_blank">Avvia lo strumento </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
+<a class="typeform-share button" href="QUI_IL_LINK_AL_FORM{1}" data-mode="popup" style="display:inline-block;text-decoration:none;background-color:#4D72E0;color:white;cursor:pointer;font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:40px;text-align:center;margin:0;height:40px;padding:0px 26px;border-radius:20px;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:bold;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;" data-hide-headers=true data-hide-footer=true data-submit-close-delay="2" target="_blank">Avvia lo strumento </a> <script> (function() { var qs,js,q,s,d=document, gi=d.getElementById, ce=d.createElement, gt=d.getElementsByTagName, id="typef_orm_share", b="https://embed.typeform.com/"; if(!gi.call(d,id)){ js=ce.call(d,"script"); js.id=id; js.src=b+"embed.js"; q=gt.call(d,"script")[0]; q.parentNode.insertBefore(js,q) } })() </script>
 ```
 - nel file `tool-external.php`: cambiare il codice seguendo la procedura Typeform (o simile) per inserire a schermo intero il form su una pagina esterna (embed);
 
@@ -362,11 +362,15 @@ Successivamente, modificare le seguenti righe di codice:
 <p><a class="btn btn-primary" target="_blank" href="QUI_IL_LINK_AL_FORM{2}">Avvia il sondaggio finale</a></p>
 ```
 
+- nel file `helpdesk.php`: cambiare il codice seguendo la procedura Typeform (o simile) per inserire il modulo come popup.
+
 ***Nota di personalizzazione:*** nel caso in cui si voglia personalizzare il contenuto del portale ed il template delle e-mail inviate agli utenti finali, leggere la sezione *Personalizzazione*.
 
 ## Preparazione dell’ambiente software per il vettore d’attacco
 
 L’applicativo utilizzato per compiere l’attacco è da compilare da linea di comando in ambiente Linux; per questo, è consigliato installare Kali Linux come distribuzione, in modo tale da avere un ambiente robusto e completo per poter compiere attacchi di ingegneria sociale.
+
+***Note di installazione:*** per installare Kali Linux, [seguire la procedura ufficiale qui presentata](https://www.kali.org/docs/installation/), lasciando le impostazioni di default.
 
 #### Note sul metodo di installazione per Kali Linux
 
@@ -378,12 +382,11 @@ Kali Linux può essere installato facilmente scaricando la distribuzione diretta
 
 ### Installazione di HiddenEye
 
-Per perpetrare l’attacco, verrà utilizzato HiddenEye; è stato scelto questo rispetto ad altri applicativi per la capacità di mantenere più connessioni simultanee con l’esterno e per le possibilità di sviluppare un vettore d’attacco che tenti di catturare informazioni sulla localizzazione (gli altri applicativi si limitano a tentare di catturare le informazioni di accesso per servizi online famosi, come e-mail e password di Gmail).
+Per perpetrare l’attacco, è stato utilizzato HiddenEye; è stato scelto questo rispetto ad altri applicativi per la capacità di mantenere più connessioni simultanee con l’esterno e per le possibilità di sviluppare un vettore d’attacco che tenti di catturare informazioni sulla localizzazione (gli altri applicativi si limitano a tentare di catturare le informazioni di accesso per servizi online famosi, come e-mail e password di Gmail).
 
-Per installare HiddenEye su Kali Linux, seguire la procedura descritta nella sezione “Usage and Installation" della fonte @git:hiddeneye.
+Per ripetere la procedura come fatta in fase di test originale: installare HiddenEye su Kali Linux, [seguire la procedura descritta nella sezione "Usage and Installation" dell'applicazione](https://github.com/DarkSecDevelopers/HiddenEye).  
 
 ### Esecuzione di HiddenEye e utilizzo
-
 
 Dopo aver completato la procedura di installazione, compilare da linea di comando:
 
@@ -402,8 +405,11 @@ Per replicare l’esecuzione *in quantum huiusmodi* in questa monografia: aprire
 
 4.  inserire una porta, strettamente maggiore di 1024;
 
-5.  fornire quindi un URI verso cui reindirizzare l’utente successivamente all’attacco.
+5.  fornire quindi un URI verso cui reindirizzare l’utente successivamente all’attacco;
 
+6.  scegliere '1' per selezionare ***ngrok*** come server di indirizzamento esterno della rete locale.
+
+Al termine della procedura verrà generato un link simile a [https://easoi31084tu12.ngrok.io](#), copiarlo ed incollarlo nell'apposito campo della sezione *'Invia e-mail malevola'* dal pannello di amministrazione per effettuare l'attacco. *Maggiori dettagli sono presenti nella seguente sezione di Utilizzo*.
 
 # Utilizzo della piattaforma
 
