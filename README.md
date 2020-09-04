@@ -50,6 +50,8 @@ Utilizzando tale applicativo, colui che partecipa al test è in grado di trovare
 
 ***Nota di installazione***: Se non hai ancora strutturato un ambiente di sviluppo in grado di contenere l'infrastruttura, segui le istruzioni contenute nella sezione _Preparazione dell'ambiente di sviluppo_, altrimenti passa alla sezione _Installazione dell'Infrastruttura_.
 
+***Nota di implementazione***: nel caso in cui tu stia cercando di installare una versione standalone del sistema sul tuo ambiente, leggi nel dettaglio la sezione [Personalizzazione](#personalizzazione) che contiene informazioni fondamentali per il corretto funzionamento dell'infrastruttura e delle e-mail. **Ricorda di verificare tutti gli URI assoluti presenti nelle pagine dell'infrastruttura**: una versione con installazione standalone ancora non è stata sviluppata, quindi c'è da sporcarsi le mani e modificarli manualmente. *In futuro è in programma una versione auto-installante che sopperisca a questo limite strutturale*.
+
 ## Progettazione e sviluppo del portale
 
 ### Preparazione dell’ambiente di sviluppo
@@ -597,4 +599,9 @@ In ogni momento l’utente può chiudere la sessione e uscire dall’applicazion
 Se l’utente che effettua l’accesso è l’amministratore del sistema, allora può visualizzare la pagina di amministrazione e attuare le varie fasi del test. Può essere aperta cliccando sull’omonima etichetta dal menu laterale.
 
 # Personalizzazione
+Modificando i file `xml` presenti nella sezione `components/parts/site` è possibile modificare l'intera impostazione contenutistica e grafica del portale. Le cartelle `css` e `images` contengono invece le risorse di stile e le immagini del sistema: `style.css` contiene le definizioni di stile principali.
 
+Modificando i file `xml` presenti nella sezione `components/templates/email` si possono variare i template delle e-mail inviate agli utenti finali: tanto il design che il contenuto testuale e i link.
+
+## Note di personalizzazioni importanti
+***ATTENZIONE*: i link rimandano a** *sept.tech* e non al vostro URI. **Abbiate cura di controllare che tutti i link, soprattutto quelli contenuti nelle e-mail reindirizzino alla pagina corretta**
