@@ -6,5 +6,292 @@
 // Database 'app'
 
 // app.user-informations
-
-[{"email":"JVQXEY3PFZRWQ2LPMNRWQZLUORUUA2DPORWWC2LMFZUXI","gender":"0","level":"3","age":"35","privacy":"1","attack-sent":"1","attack-result":"0"}, {"email":"M5QWE4TJMVWGKLTWMF2WIYLON5AG65LUNRXW62ZOMNXW2","gender":"0","level":"3","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"M5QWE4TJMVWGKLTWMF2WIYLON5AHG5DVMRSW45DJFZYG63DJORXS42LU","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"M5SW63JONVXW42LDMF2HE33NMJQUAZ3NMFUWYLTDN5WQ","gender":"1","level":"3","age":"35","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MFWGK43TMFXGI4TPFZWWC4TJORQXI2KANRUWEZLSN4XGS5A","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"0"}, {"email":"MFWGSY3FFZWWSZ3MNFSXI5DBIBTW2YLJNQXGG33N","gender":"1","level":"1","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MFXGOZLMN4XHIYLCMJUWCQDHNVQWS3BOMNXW2","gender":"1","level":"2","age":"55","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MFXHILTNN5XHIOJYIBWGSYTFOJXS42LU","gender":"0","level":"3","age":"45","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MNQXE33MNRQS43LBOJWW6QDHNVQWS3BOMNXW2","gender":"1","level":"2","age":"55","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MRQW22LBNZQXMYLMNRXW4ZKANBXXI3LBNFWC4Y3PNU","gender":"1","level":"1","age":"45","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MV2WOZLONFXS43LBONZWS3TJIBZXI5LEMVXHI2JOOBXWY2LUN4XGS5A","gender":"0","level":"4","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MVWGK33ON5ZGCLTUMFRGE2LBIBTW2YLJNQXGG33N","gender":"1","level":"5","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MVWGS43BFZSGC43TMV2HI32AM5WWC2LMFZRW63I","gender":"1","level":"3","age":"45","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"MZZGC3TDMVZWGYLMMFVW6QDJMNWG65LEFZRW63I","gender":"1","level":"2","age":"65","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NFZGSLTCMFRGSYLDIBTW2YLJNQXGG33N","gender":"1","level":"2","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NRQW4YJOMRQXM2LEMU4TOQDHNVQWS3BOMNXW2","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NRUW4ZDBFZWWC4TJMFXGSLRQGFAGO3LBNFWC4Y3PNU","gender":"1","level":"4","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NV2W443JNVXW4ZKAM5WWC2LMFZRW63I","gender":"0","level":"5","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NVQXE5DBFZQXA4TVPJ5GK43FIBTW2YLJNQXGG33N","gender":"1","level":"3","age":"55","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NVQXEY3FNRWG6LT2MFWXAZLMNRQUAZ3NMFUWYLTDN5WQ","gender":"0","level":"4","age":"55","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NVQXI5DJMFYHEZLTORUWM2LMNFYHA32ANBXXI3LBNFWC42LU","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NVUWW2LWNFWGYYLONFAGQ33UNVQWS3BOMNXW2","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NVWWK3DJONZWC3TPIBWGSYTFOJXS42LU","gender":"0","level":"3","age":"35","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"NZXWK3LJHE4S44TBNFWW63TENFAGO3LBNFWC4Y3PNU","gender":"1","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"OBQW63DBFZWWS4TPIBXXK5DMN5XWWLTJOQ","gender":"1","level":"3","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"OJRGO2LPOZQW43TJGIZUAZ3NMFUWYLTDN5WQ","gender":"0","level":"4","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"OJUWGY3BOJSG6MJZGRAGQ33UNVQWS3BONF2A","gender":"0","level":"3","age":"18","privacy":"1","attack-sent":"1","attack-result":"0"}, {"email":"OMZDIOJTG4ZEA43UOVSGK3TUNEXHA33MNF2G6LTJOQ","gender":"0","level":"2","age":"65","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ON2GKZ3IMVYGCQDIN52G2YLJNQXGS5A","gender":"0","level":"4","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ON2GKZTBNZXS4ZLNMFXHKZLMFY4TQQDHNVQWS3BOMNXW2","gender":"0","level":"3","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ON4XE2LBPJQW4YLSMRXUA2DPORWWC2LMFZUXI","gender":"1","level":"3","age":"45","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ONSXEZLOMFWG64TFNRWGSQDHNVQWS3BOMNXW2","gender":"1","level":"3","age":"25","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ONSXEZLOMFWWS4TPIBXXK5DMN5XWWLTJOQ","gender":"1","level":"4","age":"35","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ONUG6Y3LMVSDCMKAM5WWC2LMFZRW63I","gender":"0","level":"5","age":"35","privacy":"1","attack-sent":"0","attack-result":"0"}, {"email":"ONUG6Y3LMVSEA4DPNRUXI3ZONF2A","gender":"0","level":"5","age":"35","privacy":"1","attack-sent":"1","attack-result":"9"}, {"email":"ORXW2YLTNVQXE2LDNE4TOQDHNVQWS3BOMNXW2","gender":"0","level":"1","age":"18","privacy":"1","attack-sent":"1","attack-result":"9"}]
+[{
+    "email": "JVQXEY3PFZRWQ2LPMNRWQZLUORUUA2DPORWWC2LMFZUXI",
+    "gender": "0",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "0"
+}, {
+    "email": "M5QWE4TJMVWGKLTWMF2WIYLON5AG65LUNRXW62ZOMNXW2",
+    "gender": "0",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "M5QWE4TJMVWGKLTWMF2WIYLON5AHG5DVMRSW45DJFZYG63DJORXS42LU",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "M5SW63JONVXW42LDMF2HE33NMJQUAZ3NMFUWYLTDN5WQ",
+    "gender": "1",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MFWGK43TMFXGI4TPFZWWC4TJORQXI2KANRUWEZLSN4XGS5A",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "0"
+}, {
+    "email": "MFWGSY3FFZWWSZ3MNFSXI5DBIBTW2YLJNQXGG33N",
+    "gender": "1",
+    "level": "1",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MFXGOZLMN4XHIYLCMJUWCQDHNVQWS3BOMNXW2",
+    "gender": "1",
+    "level": "2",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MFXHILTNN5XHIOJYIBWGSYTFOJXS42LU",
+    "gender": "0",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MNQXE33MNRQS43LBOJWW6QDHNVQWS3BOMNXW2",
+    "gender": "1",
+    "level": "2",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MRQW22LBNZQXMYLMNRXW4ZKANBXXI3LBNFWC4Y3PNU",
+    "gender": "1",
+    "level": "1",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MV2WOZLONFXS43LBONZWS3TJIBZXI5LEMVXHI2JOOBXWY2LUN4XGS5A",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MVWGK33ON5ZGCLTUMFRGE2LBIBTW2YLJNQXGG33N",
+    "gender": "1",
+    "level": "5",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MVWGS43BFZSGC43TMV2HI32AM5WWC2LMFZRW63I",
+    "gender": "1",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "MZZGC3TDMVZWGYLMMFVW6QDJMNWG65LEFZRW63I",
+    "gender": "1",
+    "level": "2",
+    "age": "65",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NFZGSLTCMFRGSYLDIBTW2YLJNQXGG33N",
+    "gender": "1",
+    "level": "2",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NRQW4YJOMRQXM2LEMU4TOQDHNVQWS3BOMNXW2",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NRUW4ZDBFZWWC4TJMFXGSLRQGFAGO3LBNFWC4Y3PNU",
+    "gender": "1",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NV2W443JNVXW4ZKAM5WWC2LMFZRW63I",
+    "gender": "0",
+    "level": "5",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NVQXE5DBFZQXA4TVPJ5GK43FIBTW2YLJNQXGG33N",
+    "gender": "1",
+    "level": "3",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NVQXEY3FNRWG6LT2MFWXAZLMNRQUAZ3NMFUWYLTDN5WQ",
+    "gender": "0",
+    "level": "4",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NVQXI5DJMFYHEZLTORUWM2LMNFYHA32ANBXXI3LBNFWC42LU",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NVUWW2LWNFWGYYLONFAGQ33UNVQWS3BOMNXW2",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NVWWK3DJONZWC3TPIBWGSYTFOJXS42LU",
+    "gender": "0",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NZXWK3LJHE4S44TBNFWW63TENFAGO3LBNFWC4Y3PNU",
+    "gender": "1",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OBQW63DBFZWWS4TPIBXXK5DMN5XWWLTJOQ",
+    "gender": "1",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OJRGO2LPOZQW43TJGIZUAZ3NMFUWYLTDN5WQ",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OJUWGY3BOJSG6MJZGRAGQ33UNVQWS3BONF2A",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "0"
+}, {
+    "email": "OMZDIOJTG4ZEA43UOVSGK3TUNEXHA33MNF2G6LTJOQ",
+    "gender": "0",
+    "level": "2",
+    "age": "65",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ON2GKZ3IMVYGCQDIN52G2YLJNQXGS5A",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ON2GKZTBNZXS4ZLNMFXHKZLMFY4TQQDHNVQWS3BOMNXW2",
+    "gender": "0",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ON4XE2LBPJQW4YLSMRXUA2DPORWWC2LMFZUXI",
+    "gender": "1",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ONSXEZLOMFWG64TFNRWGSQDHNVQWS3BOMNXW2",
+    "gender": "1",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ONSXEZLOMFWWS4TPIBXXK5DMN5XWWLTJOQ",
+    "gender": "1",
+    "level": "4",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ONUG6Y3LMVSDCMKAM5WWC2LMFZRW63I",
+    "gender": "0",
+    "level": "5",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "0",
+    "attack-result": "0"
+}, {
+    "email": "ONUG6Y3LMVSEA4DPNRUXI3ZONF2A",
+    "gender": "0",
+    "level": "5",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ORXW2YLTNVQXE2LDNE4TOQDHNVQWS3BOMNXW2",
+    "gender": "0",
+    "level": "1",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}]
