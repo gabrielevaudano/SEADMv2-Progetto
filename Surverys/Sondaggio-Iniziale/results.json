@@ -1,0 +1,292 @@
+// Database 'app'
+
+// app.user-informations
+[{
+    "email": "Q384R5741ZWZYNG1",
+    "gender": "0",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "0"
+}, {
+    "email": "R7D6P43MGCJIFLQC",
+    "gender": "0",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OA2W2CUCEGCAUV5K",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "T7SOX7TSSCYNNGTI",
+    "gender": "1",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "NBMDO7JZIB64R6LO",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "7832EVLLW6OJ9XDR",
+    "gender": "1",
+    "level": "1",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "XBDJ57M0QZS33MF7",
+    "gender": "1",
+    "level": "2",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "UI22QTVIXVBQUVJ7",
+    "gender": "0",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "U2U1UT5LFFQ0I6ZY",
+    "gender": "1",
+    "level": "2",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "VGHFUR0IG4D9KYJL",
+    "gender": "1",
+    "level": "1",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "7EUIDCIYWA60XIDV",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "X1VGFW7D1F5O8EZN",
+    "gender": "1",
+    "level": "5",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "I4EEC4IXL5O7ZO4O",
+    "gender": "1",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "10DH2QW4NJF9QPB1",
+    "gender": "1",
+    "level": "2",
+    "age": "65",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "4COKBMCQO0BC1S2F",
+    "gender": "1",
+    "level": "2",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "E2UVBDCR0TZ039IC",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "SPFNVAUV7PQ1COWA",
+    "gender": "1",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "9LZ49LELNQ0AAWPS",
+    "gender": "0",
+    "level": "5",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "RE2VEAC2272DKS96",
+    "gender": "1",
+    "level": "3",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "YWZ36B3GU8ZQJZA3",
+    "gender": "0",
+    "level": "4",
+    "age": "55",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "HPJE1J5334WIR9I9",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "HWQ415P7NIOO6CVG",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "1E44D7BEKYJOMR3H",
+    "gender": "0",
+    "level": "3",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "J8I4C9KG74BRERH7",
+    "gender": "1",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "BBWX6N001Z57JLY6",
+    "gender": "1",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "Q1C6YAGMAWDH1Y4K",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OJUWGY3BOJSG6MJZGRAGQRET33UNVQWS3BONF2A",
+    "gender": "0",
+    "level": "3",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "0"
+}, {
+    "email": "PQY51HIOIXPL0VWK",
+    "gender": "0",
+    "level": "2",
+    "age": "65",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "I00LCW2QN7DTSEZ1",
+    "gender": "0",
+    "level": "4",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "GA1YOC8TJROXJCOY",
+    "gender": "0",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "OSWWH73F07OU3OEX",
+    "gender": "1",
+    "level": "3",
+    "age": "45",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "0UAFDGILU0SUF1B0",
+    "gender": "1",
+    "level": "3",
+    "age": "25",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "ENCNP73AS2KW6FFZ",
+    "gender": "1",
+    "level": "4",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "RX0V1QPKQXMHTIUM",
+    "gender": "0",
+    "level": "5",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "0",
+    "attack-result": "0"
+}, {
+    "email": "IVKHDCS1MMHQQS7H",
+    "gender": "0",
+    "level": "5",
+    "age": "35",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}, {
+    "email": "BKIYOUYTPVC8AF9G",
+    "gender": "0",
+    "level": "1",
+    "age": "18",
+    "privacy": "1",
+    "attack-sent": "1",
+    "attack-result": "9"
+}]
