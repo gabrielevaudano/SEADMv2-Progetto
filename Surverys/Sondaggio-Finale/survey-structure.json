@@ -1,0 +1,421 @@
+{
+  "event_id": "01EHCFHF5K9E0V058QFSXQ5151",
+  "event_type": "form_response",
+  "form_response": {
+    "form_id": "K2a5DLyv",
+    "token": "hzf4odop8rukhzf4yywo6lz1w8t4v1rn",
+    "landed_at": "2020-09-04T11:50:53Z",
+    "submitted_at": "2020-09-04T11:55:30Z",
+    "hidden": {
+      "group": ""
+    },
+    "definition": {
+      "id": "K2a5DLyv",
+      "title": "Final Survey for SEADMv2 test",
+      "fields": [
+        {
+          "id": "Vk5r7WRe3dZM",
+          "title": "Dunque, qual è il tuo ID univoco? ",
+          "type": "short_text",
+          "ref": "7c804139-4380-467d-b6af-f94748c808a0",
+          "properties": {}
+        },
+        {
+          "id": "gN5tVhbnFSWA",
+          "title": "Preferisci svolgere il sondaggio per via telefonica?",
+          "type": "yes_no",
+          "ref": "eb6ba0c6-5e04-43b7-9250-f84e40b00e5b",
+          "properties": {}
+        },
+        {
+          "id": "Ee0IW5h8Q99u",
+          "title": "Hai trovato efficace la scelta di somministrare un test mediante un portale online?",
+          "type": "yes_no",
+          "ref": "01E0D1CY1WPEX0MYVQ2W1Z45JP",
+          "properties": {}
+        },
+        {
+          "id": "DaZbw9xO1ROF",
+          "title": "Le informazioni riportate sul portale erano chiare?",
+          "type": "opinion_scale",
+          "ref": "e13b982d-2c01-46c8-a1c4-4c37d80d4f47",
+          "properties": {}
+        },
+        {
+          "id": "PRxQHBtcQojI",
+          "title": "Quanto hai trovato gradevole l'interfaccia grafica?",
+          "type": "opinion_scale",
+          "ref": "26333a21-166b-4c37-9700-4f356bb8c7e8",
+          "properties": {}
+        },
+        {
+          "id": "XWEhF4E6DbEh",
+          "title": "Il portale ha avuto qualche malfunzionamento o rallentamento durante il test?",
+          "type": "yes_no",
+          "ref": "2aa32207-94b0-48fd-a5fd-a85ecbcae136",
+          "properties": {}
+        },
+        {
+          "id": "7nHkyrV91hur",
+          "title": "Sei riuscito a trovare tutte le informazioni di cui avevi bisogno per completare il test?",
+          "type": "yes_no",
+          "ref": "2686f877-34f1-4559-a19e-74a60ad1e72d",
+          "properties": {}
+        },
+        {
+          "id": "RhKhzZ4SmE2D",
+          "title": "Cosa credi che sia l'ingegneria sociale?",
+          "type": "multiple_choice",
+          "ref": "05931faa-2570-40ed-a741-2282ee0e2d2c",
+          "properties": {},
+          "choices": [
+            {
+              "id": "D1uUCkSwT2VH",
+              "label": "Una branca dell'ingegneria specializzata nello studio e ingegnerizzazione delle relazioni sociali"
+            },
+            {
+              "id": "1LikgsunQCGT",
+              "label": "Un metodo sfruttato per carpire informazioni personali e dati sensibili"
+            },
+            {
+              "id": "ASQUsP7vRXUO",
+              "label": "Una tecnica di attacco informatico come virus, worm e spyware"
+            }
+          ]
+        },
+        {
+          "id": "15WmZSJjY3cs",
+          "title": "Durante il test, hai ricevuto una e-mail simile a questa?",
+          "type": "yes_no",
+          "ref": "42fc12cc-13c3-40ef-b036-bbc481c0e3eb",
+          "properties": {}
+        },
+        {
+          "id": "4GKUuYhgfeft",
+          "title": "Hai cliccato sul link alle risorse contenuto nell'e-mail?",
+          "type": "yes_no",
+          "ref": "0545fbe1-952a-4df6-8349-7d4bd46146cd",
+          "properties": {}
+        },
+        {
+          "id": "4TlQN1Jl9XAR",
+          "title": "A quale gruppo di lavoro appartenevi?",
+          "type": "multiple_choice",
+          "ref": "4a0d1ad6-da01-4e1d-ac21-927c1757d863",
+          "properties": {},
+          "choices": [
+            {
+              "id": "qgToZ9BkilGp",
+              "label": "1"
+            },
+            {
+              "id": "Foyk6coW3ZfO",
+              "label": "2"
+            },
+            {
+              "id": "bBqCg6bu91ge",
+              "label": "Non so"
+            }
+          ]
+        },
+        {
+          "id": "BcNu7OAW4PRW",
+          "title": "Hai utilizzato il tool SEADMv2 presente nel portale per valutare l'attendibilità di alcune e-mail?",
+          "type": "yes_no",
+          "ref": "3299226e-8a9e-4a63-bd8d-1a6b1d76cca6",
+          "properties": {}
+        },
+        {
+          "id": "1v7IoxZHY8Ok",
+          "title": "A quante domande dello strumento hai risposto \"Non so / Non ho capito\"?",
+          "type": "multiple_choice",
+          "ref": "f8aac19d-8747-4a68-a49e-909b09200866",
+          "properties": {},
+          "choices": [
+            {
+              "id": "igf3KUXbxPt5",
+              "label": "Nessuna"
+            },
+            {
+              "id": "9vjqvA1jHUAl",
+              "label": "Una o due"
+            },
+            {
+              "id": "yHx4crioX2yq",
+              "label": "Più di due"
+            }
+          ]
+        },
+        {
+          "id": "FL6mAC8LbREb",
+          "title": "Quanto era comprensibile la richiesta delle domande poste nel questionario SEADMv2?",
+          "type": "opinion_scale",
+          "ref": "51daa03b-dcc1-4f56-96e2-823bb97c363b",
+          "properties": {}
+        },
+        {
+          "id": "bDr19D5b8CDV",
+          "title": "Quanto ritieni corretta la seguente affermazione: \n_\"Alcune domande non avevano senso o chiedevano informazioni a cui non potevo o non sapevo cosa rispondere\"_",
+          "type": "opinion_scale",
+          "ref": "bf45f215-cc33-44b8-8fc9-97c7ecb8034c",
+          "properties": {}
+        },
+        {
+          "id": "8G1n0UeFKEdb",
+          "title": "Quanto ritieni corretta la seguente affermazione: \n_\"Una struttura più personalizzata in cui le domande vengano generate in base alla condizione dell'utente sarebbe più efficace\"_",
+          "type": "opinion_scale",
+          "ref": "eadff54c-3ccc-4b84-bff3-8691d7d1254b",
+          "properties": {}
+        },
+        {
+          "id": "6W6CihrgxyyX",
+          "title": "Quanto ritieni corretta la seguente affermazione: \n_\"Le domande sembrano poste nei confronti di un dipendente di una grande azienda. Un privato o una piccola impresa non saprebbe rispondervi in maniera consistente\"_",
+          "type": "opinion_scale",
+          "ref": "af83618b-b426-42cc-8203-2f0cbad318c9",
+          "properties": {}
+        },
+        {
+          "id": "9DMCPvpnVQjD",
+          "title": "Quanto ritieni corretta la seguente affermazione: \n_\"Un consiglio più ricco di informazioni, che non si limiti a dire 'Procedi', 'Non procedere' potrebbe essere più utile all'utente finale\"_",
+          "type": "opinion_scale",
+          "ref": "5be3093f-6c3d-4740-8730-53b8965d4829",
+          "properties": {}
+        },
+        {
+          "id": "Lfz3ZiMKmJOU",
+          "title": "Quanto ritieni corretta la seguente affermazione: \n_\"Alcune domande sono molto simili\"_",
+          "type": "opinion_scale",
+          "ref": "f9fe295f-5d83-4b14-aceb-01638a40ed31",
+          "properties": {}
+        },
+        {
+          "id": "apzBmA2ViqUl",
+          "title": "Preparare un modello di prevenzione che proponga domande diverse ai privati, alle piccole e alle grandi imprese potrebbe aumentarne l'efficacia?",
+          "type": "yes_no",
+          "ref": "462afcfd-8570-4615-b466-725665662e9e",
+          "properties": {}
+        },
+        {
+          "id": "iWohowr7cBnE",
+          "title": "Utilizzeresti in maniera costante lo strumento per prevenire attacchi informatici, se fosse disponibile sotto forma di applicazione installabile su smartphone e computer?",
+          "type": "yes_no",
+          "ref": "6e51b6b0-b093-489d-b0b6-f066a55ee960",
+          "properties": {}
+        },
+        {
+          "id": "KkopDYTObSJN",
+          "title": "Ti piacerebbe essere menzionato nei crediti della tesi di laurea?",
+          "type": "yes_no",
+          "ref": "337576b2-684c-4531-a82a-104e0265d9a5",
+          "properties": {}
+        }
+      ]
+    },
+    "answers": [
+      {
+        "type": "text",
+        "text": "MjM0NA==",
+        "field": {
+          "id": "Vk5r7WRe3dZM",
+          "type": "short_text",
+          "ref": "7c804139-4380-467d-b6af-f94748c808a0"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": false,
+        "field": {
+          "id": "gN5tVhbnFSWA",
+          "type": "yes_no",
+          "ref": "eb6ba0c6-5e04-43b7-9250-f84e40b00e5b"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": true,
+        "field": {
+          "id": "Ee0IW5h8Q99u",
+          "type": "yes_no",
+          "ref": "01E0D1CY1WPEX0MYVQ2W1Z45JP"
+        }
+      },
+      {
+        "type": "number",
+        "number": 4,
+        "field": {
+          "id": "DaZbw9xO1ROF",
+          "type": "opinion_scale",
+          "ref": "e13b982d-2c01-46c8-a1c4-4c37d80d4f47"
+        }
+      },
+      {
+        "type": "number",
+        "number": 4,
+        "field": {
+          "id": "PRxQHBtcQojI",
+          "type": "opinion_scale",
+          "ref": "26333a21-166b-4c37-9700-4f356bb8c7e8"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": false,
+        "field": {
+          "id": "XWEhF4E6DbEh",
+          "type": "yes_no",
+          "ref": "2aa32207-94b0-48fd-a5fd-a85ecbcae136"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": true,
+        "field": {
+          "id": "7nHkyrV91hur",
+          "type": "yes_no",
+          "ref": "2686f877-34f1-4559-a19e-74a60ad1e72d"
+        }
+      },
+      {
+        "type": "choice",
+        "choice": {
+          "label": "Un metodo sfruttato per carpire informazioni personali e dati sensibili"
+        },
+        "field": {
+          "id": "RhKhzZ4SmE2D",
+          "type": "multiple_choice",
+          "ref": "05931faa-2570-40ed-a741-2282ee0e2d2c"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": true,
+        "field": {
+          "id": "15WmZSJjY3cs",
+          "type": "yes_no",
+          "ref": "42fc12cc-13c3-40ef-b036-bbc481c0e3eb"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": false,
+        "field": {
+          "id": "4GKUuYhgfeft",
+          "type": "yes_no",
+          "ref": "0545fbe1-952a-4df6-8349-7d4bd46146cd"
+        }
+      },
+      {
+        "type": "choice",
+        "choice": {
+          "label": "2"
+        },
+        "field": {
+          "id": "4TlQN1Jl9XAR",
+          "type": "multiple_choice",
+          "ref": "4a0d1ad6-da01-4e1d-ac21-927c1757d863"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": true,
+        "field": {
+          "id": "BcNu7OAW4PRW",
+          "type": "yes_no",
+          "ref": "3299226e-8a9e-4a63-bd8d-1a6b1d76cca6"
+        }
+      },
+      {
+        "type": "choice",
+        "choice": {
+          "label": "Una o due"
+        },
+        "field": {
+          "id": "1v7IoxZHY8Ok",
+          "type": "multiple_choice",
+          "ref": "f8aac19d-8747-4a68-a49e-909b09200866"
+        }
+      },
+      {
+        "type": "number",
+        "number": 3,
+        "field": {
+          "id": "FL6mAC8LbREb",
+          "type": "opinion_scale",
+          "ref": "51daa03b-dcc1-4f56-96e2-823bb97c363b"
+        }
+      },
+      {
+        "type": "number",
+        "number": 2,
+        "field": {
+          "id": "bDr19D5b8CDV",
+          "type": "opinion_scale",
+          "ref": "bf45f215-cc33-44b8-8fc9-97c7ecb8034c"
+        }
+      },
+      {
+        "type": "number",
+        "number": 1,
+        "field": {
+          "id": "8G1n0UeFKEdb",
+          "type": "opinion_scale",
+          "ref": "eadff54c-3ccc-4b84-bff3-8691d7d1254b"
+        }
+      },
+      {
+        "type": "number",
+        "number": 1,
+        "field": {
+          "id": "6W6CihrgxyyX",
+          "type": "opinion_scale",
+          "ref": "af83618b-b426-42cc-8203-2f0cbad318c9"
+        }
+      },
+      {
+        "type": "number",
+        "number": 1,
+        "field": {
+          "id": "9DMCPvpnVQjD",
+          "type": "opinion_scale",
+          "ref": "5be3093f-6c3d-4740-8730-53b8965d4829"
+        }
+      },
+      {
+        "type": "number",
+        "number": 4,
+        "field": {
+          "id": "Lfz3ZiMKmJOU",
+          "type": "opinion_scale",
+          "ref": "f9fe295f-5d83-4b14-aceb-01638a40ed31"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": false,
+        "field": {
+          "id": "apzBmA2ViqUl",
+          "type": "yes_no",
+          "ref": "462afcfd-8570-4615-b466-725665662e9e"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": true,
+        "field": {
+          "id": "iWohowr7cBnE",
+          "type": "yes_no",
+          "ref": "6e51b6b0-b093-489d-b0b6-f066a55ee960"
+        }
+      },
+      {
+        "type": "boolean",
+        "boolean": false,
+        "field": {
+          "id": "KkopDYTObSJN",
+          "type": "yes_no",
+          "ref": "337576b2-684c-4531-a82a-104e0265d9a5"
+        }
+      }
+    ]
+  }
+}
